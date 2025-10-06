@@ -1,0 +1,3836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KALEVEXS</title>
+
+  <!-- Google Fonts - Lexend and Cinzel -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* Enhanced Color Palette */
+    :root {
+      --primary-dark: #1a237e;
+      --primary: #303f9f;
+      --primary-light: #3949ab;
+      --secondary: #5c6bc0;
+      --accent: #7986cb;
+      --background-light: #f0f4f8;
+      --background-card: #ffffff;
+      --text-primary: #283593;
+      --text-secondary: #5c6bc0;
+      --text-light: #c5cae9;
+      --success: #4caf50;
+      --warning: #ff9800;
+      --danger: #f44336;
+      --purple: #9c27b0;
+      --pink: #e91e63;
+    }
+
+    /* General Reset */
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+    
+    body {
+      font-family: "Lexend", sans-serif;
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, var(--background-light) 0%, #e8eaf6 100%);
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Enhanced Navbar */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      background: rgba(26, 35, 126, 0.95);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    nav.scrolled {
+      padding: 0.8rem 2rem;
+      background: rgba(26, 35, 126, 0.98);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    }
+    nav h1 {
+      font-family: "Cinzel", serif;
+      color: white;
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s ease-out;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Enhanced Menu Icon */
+    .menu-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+    .menu-icon span {
+      width: 100%;
+      height: 3px;
+      background: white;
+      border-radius: 10px;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transform-origin: 5px 2px;
+    }
+    .menu-icon.open span:nth-child(1) {
+      transform: rotate(45deg);
+      background: #ff4081;
+    }
+    .menu-icon.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-icon.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      background: #ff4081;
+    }
+
+    /* Enhanced Drawer */
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 320px;
+      height: 100vh;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      backdrop-filter: blur(12px);
+      box-shadow: -10px 0 30px rgba(0,0,0,0.3);
+      z-index: 999;
+      transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      padding: 6rem 2rem 2rem;
+      border-left: 1px solid rgba(255,255,255,0.1);
+    }
+    .drawer.open {
+      right: 0;
+    }
+    .drawer ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .drawer ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.4rem;
+      transition: all 0.3s ease;
+      display: block;
+      padding: 0.6rem 0;
+      position: relative;
+      font-family: "Lexend", sans-serif;
+      letter-spacing: 0.5px;
+    }
+    .drawer ul li a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff4081, #7c4dff);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    .drawer ul li a:hover:after {
+      width: 100%;
+    }
+    .drawer ul li a:hover {
+      color: #ff4081;
+      transform: translateX(12px);
+      text-shadow: 0 0 10px rgba(255,64,129,0.5);
+    }
+
+    /* Enhanced Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Enhanced Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, rgba(40, 53, 147, 0.9) 0%, rgba(57, 73, 171, 0.9) 100%), 
+                  url('https://i.imgur.com/jgj292K.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #e8eaf6;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      animation: gradientShift 8s ease-in-out infinite;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 850px;
+      animation: fadeInUp 1.2s ease-out;
+      padding: 2rem;
+      background: rgba(26, 35, 126, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .hero h2 {
+      font-family: "Cinzel", serif;
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      color: white;
+      background: linear-gradient(45deg, #ffffff, #ff4081);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      max-width: 700px;
+      font-size: 1.4rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #e8eaf6;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .hero a {
+      background: linear-gradient(135deg, #ff4081, #7c4dff);
+      color: white;
+      padding: 1.3rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.2rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(124, 77, 255, 0.4);
+      position: relative;
+      overflow: hidden;
+      font-family: "Lexend", sans-serif;
+      letter-spacing: 1px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .hero a:hover {
+      background: linear-gradient(135deg, #7c4dff, #ff4081);
+      color: white;
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(124, 77, 255, 0.6);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .hero a:before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.5s;
+    }
+    .hero a:hover:before {
+      left: 100%;
+    }
+
+    /* Enhanced Floating Elements */
+    .floating-elements {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .floating-element {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      animation: float 8s infinite ease-in-out;
+      box-shadow: 0 0 20px rgba(255,64,129,0.6);
+    }
+    .floating-element:nth-child(1) {
+      top: 20%; left: 10%;
+      animation-delay: 0s;
+      background: rgba(124, 77, 255, 0.6);
+    }
+    .floating-element:nth-child(2) {
+      top: 60%; left: 80%;
+      animation-delay: 1s;
+      width: 8px; height: 8px;
+      background: rgba(255, 64, 129, 0.6);
+    }
+    .floating-element:nth-child(3) {
+      top: 40%; left: 90%;
+      animation-delay: 2s;
+      width: 16px; height: 16px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .floating-element:nth-child(4) {
+      top: 80%; left: 20%;
+      animation-delay: 3s;
+      width: 6px; height: 6px;
+      background: rgba(124, 77, 255, 0.6);
+    }
+    .floating-element:nth-child(5) {
+      top: 30%; left: 50%;
+      animation-delay: 4s;
+      width: 10px; height: 10px;
+      background: rgba(255, 64, 129, 0.6);
+    }
+
+    /* Enhanced Sections */
+    section:not(.hero) {
+      padding: 7rem 2rem;
+      max-width: 1300px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      position: relative;
+    }
+    section:not(.hero):before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    section h2 {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      font-size: 3rem;
+      color: var(--primary-dark);
+      font-family: "Cinzel", serif;
+      position: relative;
+      padding-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    section h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-light), var(--secondary));
+      border-radius: 3px;
+      box-shadow: 0 2px 10px rgba(48, 63, 159, 0.3);
+    }
+
+    /* Enhanced Stories Grid */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 35px;
+      margin-top: 2.5rem;
+    }
+
+    /* Enhanced Story Card - Horizontal Layout */
+    .story-card {
+      background: var(--background-card);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      transform: translateY(20px);
+      opacity: 0;
+      border: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      min-height: 280px;
+    }
+    
+    /* Red border for mature content */
+    .story-card.mature-content-border {
+      border: 3px solid var(--danger);
+    }
+    
+    .story-card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .story-card:hover {
+      transform: translateY(-15px) !important;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+      border-color: blue; /* Background Hover Color */
+    }
+    
+    .story-card.mature-content-border:hover { /* Background Hover Color */
+      transform: translateY(-15px) !important;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+      border-color: red;
+    }
+    
+    .story-image {
+      width: 40%;
+      min-width: 200px;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      filter: brightness(0.9);
+    }
+    .story-card:hover .story-image img {
+      transform: scale(1.08);
+      filter: brightness(1);
+    }
+    
+    .story-content {
+      width: 60%;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .story-content h3 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      font-family: "Cinzel", serif;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .story-content p {
+      font-size: 1.1rem;
+      color: #555;
+      margin: 1rem 0;
+      line-height: 1.8;
+      font-family: "Lexend", sans-serif;
+      flex-grow: 1;
+    }
+
+    /* Enhanced Read Button */
+    .read-btn {
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+      color: white;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(48, 63, 159, 0.4);
+      position: relative;
+      overflow: hidden;
+      font-family: "Lexend", sans-serif;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      align-self: flex-start;
+      margin-top: 1rem;
+    }
+    .read-btn:before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.5s;
+    }
+    .read-btn:hover:before {
+      left: 100%;
+    }
+    .read-btn:hover {
+      background: #112B9E; /*linear-gradient(135deg, var(--secondary), var(--accent)) */
+      transform: translateY(-3px);
+      box-shadow: 0 12px 25px rgba(48, 63, 159, 0.5);
+    }
+    
+    /* Enhanced Coming Soon Button */
+    .read-btn.coming-soon {
+      background: linear-gradient(135deg, #9e9e9e, #757575); 
+      cursor: not-allowed;
+      box-shadow: 0 4px 15px rgba(158, 158, 158, 0.3);
+    }
+    .read-btn.coming-soon:hover {
+      background: #636369; /* linear-gradient(135deg, #9e9e9e, #757575) */
+      transform: none;
+      box-shadow: 0 4px 15px rgba(158, 158, 158, 0.3);
+    }
+
+    /* Enhanced Flashing Text */
+    .flash-text {
+      animation: flash 1.5s infinite;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin: 0 5px;
+      letter-spacing: 0.5px;
+    }
+
+    .mature-content {
+      color: white;
+      background: linear-gradient(135deg, var(--danger), #ff5722);
+      animation: flash 1.5s infinite;
+      box-shadow: 0 2px 10px rgba(244, 67, 54, 0.3);
+    }
+    
+    .discontinue-story {
+      color: white;
+      background: linear-gradient(135deg, #d613b6, #9c27b0);
+      animation: flash 1.5s infinite;
+      box-shadow: 0 2px 10px rgba(214, 19, 182, 0.3);
+    }
+
+    .update-complete {
+      color: white;
+      background: linear-gradient(135deg, var(--success), #2e7d32);
+      animation: flash 1.5s infinite;
+      box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+    }
+    
+    .short-story {
+      color: white;
+      background: linear-gradient(135deg, var(--warning), #ff6f00);
+      animation: flash 1.5s infinite;
+      box-shadow: 0 2px 10px rgba(255, 152, 0, 0.3);
+    }
+    
+    .ongoing-story {
+      color: white;
+      background: linear-gradient(135deg, #211d91, #3949ab);
+      animation: flash 1.5s infinite;
+      box-shadow: 0 2px 10px rgba(33, 29, 145, 0.3);
+    }
+
+    .complete-story {
+      color: white;
+      background: linear-gradient(135deg, var(--success), #2e7d32);
+      animation: flash 1.5s infinite;
+      box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+    }
+
+    /* Enhanced About Section */
+    .about-section {
+      background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+      border-radius: 25px;
+      padding: 5rem;
+      margin-top: 3.5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .about-section:before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      opacity: 0.15;
+      filter: blur(20px);
+    }
+    .about-section:after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -50px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(45deg, var(--secondary), var(--accent));
+      border-radius: 50%;
+      opacity: 0.1;
+      filter: blur(20px);
+    }
+    .about-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .about-content p {
+      font-size: 1.3rem;
+      color: #333;
+      line-height: 1.9;
+      font-weight: 400;
+      margin-bottom: 1.8rem;
+      font-family: "Lexend", sans-serif;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+    
+    /* Enhanced Disclaimer Section */
+    .disclaimer-section {
+      background: linear-gradient(135deg, #e8eaf6 0%, #c5cae9 100%);
+      border-radius: 25px;
+      padding: 5rem;
+      margin-top: 3.5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .disclaimer-section:before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, var(--danger), #ff5722);
+      border-radius: 50%;
+      opacity: 0.1;
+      filter: blur(20px);
+    }
+    .disclaimer-section:after {
+      content: '';
+      position: absolute;
+      bottom: -120px; left: -50px;
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(45deg, #ff5722, var(--warning));
+      border-radius: 50%;
+      opacity: 0.08;
+      filter: blur(20px);
+    }
+    .disclaimer-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .disclaimer-content p {
+      font-size: 1.3rem;
+      color: #333;
+      line-height: 1.9;
+      font-weight: 400;
+      margin-bottom: 1.8rem;
+      font-family: "Lexend", sans-serif;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    /* Enhanced Footer */
+    footer {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: white;
+      padding: 5rem 2rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+      margin-top: 5rem;
+    }
+    .footer-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+    .footer-section h3 {
+      font-family: "Cinzel", serif;
+      font-size: 1.7rem;
+      margin-bottom: 1.8rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .footer-section h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff4081, #7c4dff);
+      border-radius: 2px;
+    }
+    .footer-section p {
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+      font-family: "Lexend", sans-serif;
+      font-size: 1.1rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 1.5rem;
+    }
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .social-link:hover {
+      background: linear-gradient(135deg, #ff4081, #7c4dff);
+      transform: translateY(-5px) scale(1.1);
+      border-color: rgba(255,255,255,0.4);
+      box-shadow: 0 10px 20px rgba(124, 77, 255, 0.4);
+    }
+    .footer-bottom {
+      text-align: center;
+      padding-top: 3.5rem;
+      margin-top: 3.5rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-light);
+      font-size: 1rem;
+      font-family: "Lexend", sans-serif;
+    }
+
+    /* Enhanced Modal Styles */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 2000;
+      backdrop-filter: blur(15px);
+    }
+    .modal.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+    .modal-content {
+      background: white;
+      width: 95%;
+      max-width: 1200px;
+      height: 90vh;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 2001;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .modal-header h2 {
+      font-family: "Cinzel", serif;
+      font-size: 2rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .close-btn {
+      cursor: pointer;
+      font-size: 2.5rem;
+      transition: transform 0.3s ease;
+      color: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .close-btn:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: rgba(255,255,255,0.2);
+    }
+    iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+    }
+
+    /* Enhanced Notification Modal */
+    .notification-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 3000;
+      backdrop-filter: blur(15px);
+    }
+    .notification-modal.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .notification-modal.active .notification-content {
+      transform: scale(1);
+    }
+    .notification-content {
+      background: white;
+      width: 95%;
+      max-width: 550px;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .notification-header {
+      background: linear-gradient(135deg, #ff4081, #7c4dff);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .notification-header h2 {
+      font-family: "Cinzel", serif;
+      font-size: 2.2rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .notification-body {
+      padding: 2.5rem;
+      text-align: center;
+    }
+    .notification-body h3 {
+      color: var(--primary-dark);
+      font-family: "Cinzel", serif;
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+    .notification-body p {
+      color: #555;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+      font-family: "Lexend", sans-serif;
+    }
+    .notification-actions {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .notification-btn {
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: "Lexend", sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+    .notification-btn.primary {
+      background: linear-gradient(135deg, #ff4081, #7c4dff);
+      color: white;
+      box-shadow: 0 8px 25px rgba(124, 77, 255, 0.4);
+    }
+    .notification-btn.secondary {
+      background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+      color: #333;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .notification-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Enhanced Notes Modal - Smaller Height */
+    .notes-modal {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      width: 380px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transform: translateX(450px);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      opacity: 0;
+      visibility: hidden;
+      border: 1px solid rgba(0,0,0,0.1);
+      max-height: 400px; /* Reduced height */
+    }
+    .notes-modal.show {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+    }
+    .notes-modal.show.blurred {
+      filter: blur(5px);
+    }
+    
+    .notes-header {
+      background: linear-gradient(135deg, #6e220d, #ee5a24);
+      color: white;
+      padding: 1.3rem;
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .notes-header h3 {
+      font-family: "Cinzel", serif;
+      margin: 0;
+      font-size: 1.4rem;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .notes-close {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    .notes-close:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: rgba(255,255,255,0.2);
+    }
+    .notes-body {
+      padding: 1.5rem; /* Reduced padding */
+      max-height: 250px; /* Reduced height */
+      overflow-y: auto;
+    }
+    .notes-body p {
+      margin: 0 0 1rem 0;
+      color: #333;
+      line-height: 1.6; /* Reduced line height */
+      font-size: 0.95rem; /* Smaller font */
+    }
+    .notes-timer {
+      background: #f8f9fa;
+      padding: 0.8rem; /* Reduced padding */
+      text-align: center;
+      border-top: 1px solid #eee;
+      font-size: 0.85rem; /* Smaller font */
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Mature Content Warning Modal */
+    .mature-warning-modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 4000;
+      backdrop-filter: blur(15px);
+    }
+    .mature-warning-modal.active {
+      visibility: visible;
+      opacity: 1;
+    }
+    .mature-warning-content {
+      background: white;
+      width: 95%;
+      max-width: 500px;
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .mature-warning-header {
+      background: linear-gradient(135deg, var(--danger), #ff5722);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .mature-warning-header h2 {
+      font-family: "Cinzel", serif;
+      font-size: 2rem;
+      margin: 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    .mature-warning-body {
+      padding: 2rem;
+      text-align: center;
+    }
+    .mature-warning-body p {
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      font-family: "Lexend", sans-serif;
+    }
+    .mature-warning-timer {
+      color: var(--danger);
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .mature-warning-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .mature-warning-btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: "Lexend", sans-serif;
+      font-size: 1rem;
+    }
+    .mature-warning-btn.continue {
+      background: linear-gradient(135deg, var(--danger), #ff5722);
+      color: white;
+    }
+    .mature-warning-btn.cancel {
+      background: linear-gradient(135deg, #9e9e9e, #757575);
+      color: white;
+    }
+    .mature-warning-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    /* Enhanced Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-25px) rotate(180deg);
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(124, 77, 255, 0.4);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(124, 77, 255, 0.6);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(124, 77, 255, 0.4);
+      }
+    }
+
+    @keyframes flash {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      }
+    }
+
+    /* Enhanced Contact Form */
+    .contact-form {
+      background: white;
+      padding: 3.5rem;
+      border-radius: 25px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      max-width: 750px;
+      margin: 3.5rem auto 0;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    .contact-form:before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ff4081, #7c4dff);
+    }
+    .contact-fields {
+      display: grid;
+      gap: 1.8rem;
+      margin-top: 2.5rem;
+    }
+    .contact input, .contact textarea {
+      padding: 1.4rem;
+      border: 2px solid #e0d6eb;
+      border-radius: 15px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      background: #fdfbff;
+      font-family: "Lexend", sans-serif;
+    }
+    .contact input:focus, .contact textarea:focus {
+      outline: none;
+      border-color: #7c4dff;
+      box-shadow: 0 0 0 4px rgba(124, 77, 255, 0.15);
+      transform: translateY(-2px);
+    }
+    .contact textarea {
+      resize: vertical;
+      min-height: 180px;
+    }
+    .contact button {
+      background: linear-gradient(135deg, #ff4081, #7c4dff);
+      color: white;
+      padding: 1.4rem;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 10px 30px rgba(124, 77, 255, 0.4);
+      margin-top: 1.5rem;
+      font-family: "Lexend", sans-serif;
+      letter-spacing: 1px;
+    }
+    .contact button:hover {
+      background: linear-gradient(135deg, #7c4dff, #ff4081);
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(124, 77, 255, 0.5);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0.8rem 1.5rem;
+      }
+      .menu-icon {
+        display: flex;
+      }
+      nav ul {
+        display: none;
+      }
+      .hero h2 {
+        font-size: 2.8rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      section {
+        padding: 5rem 1.5rem;
+      }
+      section h2 {
+        font-size: 2.3rem;
+      }
+      .story-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .story-card {
+        flex-direction: column;
+        min-height: auto;
+      }
+      .story-image {
+        width: 100%;
+        min-width: 100%;
+        height: 240px;
+      }
+      .story-content {
+        width: 100%;
+      }
+      .about-section, .disclaimer-section {
+        padding: 2.5rem;
+      }
+      .drawer {
+        width: 290px;
+      }
+      .notification-actions {
+        flex-direction: column;
+      }
+      .notes-modal {
+        width: calc(100% - 40px);
+        right: 20px;
+        left: 20px;
+        top: 20px;
+        max-height: 350px; /* Adjusted for mobile */
+      }
+      .hero-content {
+        padding: 1.5rem;
+      }
+      .floating-element {
+        width: 8px;
+        height: 8px;
+      }
+      .floating-element:nth-child(3) {
+        width: 12px;
+        height: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h2 {
+        font-size: 2.2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      section h2 {
+        font-size: 2rem;
+      }
+      .story-grid {
+        gap: 20px;
+      }
+      .story-content {
+        padding: 1.2rem;
+      }
+      .story-content h3 {
+        font-size: 1.3rem;
+      }
+      .contact-form {
+        padding: 2rem;
+      }
+      .notes-modal {
+        max-height: 300px; /* Further reduced for small screens */
+      }
+      .notes-body {
+        max-height: 200px; /* Adjusted for small screens */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <h1>KALEVEXS</h1>
+    <button class="menu-icon" id="menuIcon">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Drawer -->
+  <div class="drawer" id="drawer">
+    <ul>
+      <li><a href="#home-section" class="drawer-link">Home</a></li>
+      <li><a href="#stories-section" class="drawer-link">GL Stories</a></li>
+      <li><a href="#original-section" class="drawer-link">Original</a></li>
+      <li><a href="#bl-section" class="drawer-link">BL Stories</a></li>
+      <li><a href="#about-section" class="drawer-link">About Us</a></li>
+      <li><a href="#disclaimer-section" class="drawer-link">Disclaimer</a></li>
+      <li><a href="#contact-section" class="drawer-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+    
+  <!-- Hero -->
+  <section class="hero" id="home-section">
+    <div class="floating-elements">
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+    </div>
+    <div class="hero-content">
+      <h2>Welcome to KALEVEXS</h2>
+      <p>Dive into a collection of stories written and shared for readers like you. Every tale is a journey, every journey is an escape into boundless imagination.</p>
+      <a href="#stories-section">Explore</a>
+    </div>
+  </section>
+
+  <!-- Stories -->
+  <section id="stories-section">
+    <h2>GL Stories</h2>
+    <div class="story-grid">
+        
+        <!--STORY 1-->
+        
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/GbNzLvy.jpeg" alt="Enemies With Benefits">
+        </div>
+        <div class="story-content">
+          <h3>Enemies With Benefits</h3>
+          <p>They hate each other by day… but the nights tell another story. Would you risk it all for a love born out of rivalry?</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1ky1cStbCsPJT-iYnvoHxDkAaemP5H-Gy/preview')">Read Story</a>
+        </div>
+      </div>
+        
+        <!--STORY 2-->
+        
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/WHMjMRZ.jpeg" alt="Buy My Boss">
+        </div>
+        <div class="story-content">
+          <h3>Buy My Boss</h3>
+          <p>She never expected her boss to come with a price tag… or a heart. What happens when power and passion collide?.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/12rxfqeEMXJIM4TT2TAQL6bqcLtQ0uPB7/preview')">Read Story</a>
+        </div>
+      </div>
+        
+      <!--STORY 3 -->
+      
+       <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/foFvJqm.jpeg" alt="The Air">
+        </div>
+        <div class="story-content">
+          <h3>The Air (4 Elements)</h3>
+          <p>She was as free as the wind — but love still tied her down.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      <!--STORY 4 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/9anAWX0.jpeg" alt="The Earth" loading="lazy">
+        </div>
+        <div class="story-content">
+          <h3>The Earth (4 Elements)</h3>
+          <p>Steady as the earth, but shaken by love’s tremors</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      <!--STORY 5 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/FBcxRjr.jpeg" alt="The Fire">
+        </div>
+        <div class="story-content">
+          <h3>The Fire (4 Elements)</h3>
+          <p>She burned too brightly to ignore — but would love consume them both?</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      <!--STORY 6 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/SF8tYUw.jpeg" alt="The Water">
+        </div>
+        <div class="story-content">
+          <h3>The Water (4 Elements)</h3>
+          <p>Gentle like waves, fierce like storms — her love was the tide itself.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      <!--STORY 7 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Pfx0sxo.jpeg" alt="A Shadow Underneath the Moon">
+        </div>
+        <div class="story-content">
+          <h3>A Shadow Underneath the Moon</h3>
+          <p>When the night hides secrets, love finds a way to shine through. Would you dare to love under the moonlight?</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1uokWkNeRnVVPf-0C2sDP4FRSWvLXFnqT/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      <!--STORY 8 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/IIrmTwx.jpeg" alt="Built in Love">
+        </div>
+        <div class="story-content">
+          <h3>Built in Love</h3>
+          <p>They built dreams together — but could they also build love?</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      <!--STORY 9 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/i6UAafa.jpeg" alt="Chasing Love">
+        </div>
+        <div class="story-content">
+          <h3>Chasing Love</h3>
+          <p>Some love stories aren’t found… they’re chased.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1fE9cLjeO6sqvM3WFn2XvnVlGBo_iJltS/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      <!--STORY 10 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/BwpoEiU.jpeg" alt="Claire Bell">
+        </div>
+        <div class="story-content">
+          <h3>Claire Bell</h3>
+          <p>A name she couldn’t forget, a love she couldn’t escape.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1ve2QF7YCtWa8sqZ4A5C1BNjEvO4f5gle/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      <!--STORY 11 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/CaEWSPJ.jpeg" alt="Cranium">
+        </div>
+        <div class="story-content">
+          <h3>Cranium</h3>
+          <p>In the game of minds and hearts, who really wins?</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1qXtcXLRwRLOzs8h67mG5nlOqdrTAAKF8/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      <!--STORY 12 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/yCA41Jz.jpeg" alt="Harmony Secret">
+        </div>
+        <div class="story-content">
+          <h3>Harmony Secret</h3>
+          <p>Every melody hides a secret — and hers was love.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1fDn0zYGxGj1Q5sDlQmHCBFPjsfZWMGxZ/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      <!--STORY 13 -->
+      
+       <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/pISIxXn.jpeg" alt="Irresistible">
+        </div>
+        <div class="story-content">
+          <h3>Irresistible</h3>
+          <p>She was temptation wrapped in a smile. Who could resist?</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Yewwwpi1oUuD3rZLsroY6cJKNDintcKn/preview')">Ready Story</a>
+        </div>
+      </div>
+      
+      <!--STORY 14 -->  
+      
+       <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/fwB4OkB.jpeg" alt="Love Fibre">
+        </div>
+        <div class="story-content">
+          <h3>Love Fibre</h3>
+          <p>When two souls connect, no distance can tear them apart.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+        
+        <!--STORY 15 --> 
+      
+       <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/KdM99bQ.jpeg" alt="Obsessed">
+        </div>
+        <div class="story-content">
+          <h3>Obsessed</h3>
+          <p>Desire turned dangerous. Love, or obsession?</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+        <!--STORY 16 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/FqCWq57.jpeg" alt="Petrichor">
+        </div>
+        <div class="story-content">
+          <h3>Petrichor Volume 1</h3>
+          <p>Love, like rain, leaves a scent you can’t forget.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1LVO8NOKbM_ozO0OZt3OqM5KDwDQaYIBj/preview')">Read Story</a>
+        </div>
+      </div>
+      
+       <!--STORY 17 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/ImhXyF8.jpeg" alt="Player">
+        </div>
+        <div class="story-content">
+          <h3>Player</h3>
+          <p>She played the game of love — until she became the prize.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1uJGeGM_-Iom_MthB_jTSem0sqPdE5D68/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+       <!--STORY 18 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/kuXyaRV.jpeg" alt="Poisonous Love">
+        </div>
+        <div class="story-content">
+          <h3>Poisonous Love</h3>
+          <p>Her kiss was sweet, but deadly.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1MbSP7RazvhSYGVPKu-nOIUCbyZMO2wvR/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+       <!--STORY 19 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/8WVynMP.jpeg" alt="Professor with Benefits">
+        </div>
+        <div class="story-content">
+          <h3>Professor with Benefits</h3>
+          <p>Lessons in love were never part of the syllabus.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+       <!--STORY 20 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/1cSsYc9.jpeg" alt="Queendom">
+        </div>
+        <div class="story-content">
+          <h3>Queendom</h3>
+          <p>Two women. One throne. A love that could rule them all.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1csmqBqDs8n3SR3iXkQEfFsN6mgQn-Mq7/preview')">Read Story</a>
+        </div>
+      </div>
+      
+       <!--STORY 21 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/ECE7w0X.jpeg" alt="Roller Coaster">
+        </div>
+        <div class="story-content">
+          <h3>Roller Coaster</h3>
+          <p>Love takes you up, down, and spinning — are you ready for the ride? </p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1A-d9SvDaBFFlCKEfHEGVowkiTCqnh5tk/preview')">Read Story</a>
+        </div>
+      </div>
+      
+       <!--STORY 22 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/L3F2t2z.jpeg" alt="The Secret of Us">
+        </div>
+        <div class="story-content">
+          <h3>The Secret of Us</h3>
+          <p>Every love story has a secret… this one could change everything.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      <!--STORY 23 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/dLH99DU.jpeg" alt="Chain">
+        </div>
+        <div class="story-content">
+          <h3>Chain</h3>
+          <p>Love that binds, love that breaks. Which side will win?</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+        
+       <!--STORY 24 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/GwVOj5P.jpeg" alt="Midnight Flight">
+        </div>
+        <div class="story-content">
+          <h3>Midnight Flight</h3>
+          <p>One midnight flight, two strangers… and a destination that could change everything.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+    
+      
+       <!--STORY 25  --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/LJmtKY7.jpeg" alt="Crush">
+        </div>
+        <div class="story-content">
+          <h3>Crush</h3>
+          <p>It started as an innocent crush… until feelings grew too heavy to hide.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+     
+      
+      
+       <!--STORY 26 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/X0IECko.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Rolling In Love</h3>
+          <p>She was supposed to be her enemy, but she became her everything.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+       <!--STORY 27 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/5dcjm6d.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Bad Sugar</h3>
+          <p>She’s poison wrapped in sweetness, and she can’t stop tasting the danger.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+       <!--STORY 28 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/xbot6mz.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Just Friend</h3>
+          <p>They promised to stay just friends, but the heart never signs that contract.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1fMZ7nnINpLkH6zBEW7v94ti5L9WaoomM/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      
+       <!--STORY 29 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/4XNm4k4.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Blossom Lady</h3>
+          <p>She's a player who only dates younger women. She's her older, single-mom secretary. They were never supposed to fall in love.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1rkTUvG5NQDupp2-CvzrcUuzWCK_T4LWV/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      
+       <!--STORY 30 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/btL8V4i.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>The Moon Likes Your Smile</h3>
+          <p>She's been silent for years, but her voice is the only one she can hear.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+       <!--STORY 31 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/8WexvzD.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Mirror</h3>
+          <p>She got a new heart, but she didn't know it came with a new reflection.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+        
+      
+       <!--STORY 32 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/sPAiUlN.jpeg" alt=""> 
+        </div>
+        <div class="story-content">
+          <h3>Uncertainty</h3>
+          <p>For her, she was a risk worth taking. For the other, she was the love she couldn't escape.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+       <!--STORY 33 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/u1dzb7V.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Love and Persuasion</h3>
+          <p>She was for sale, but she bought her heart.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+       <!--STORY 34  --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/orDXecv.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Us</h3>
+          <p>She's his brother's girlfriend, but she's the only one she sees.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1C16-bXXt2MN9LKv5yZVB18dN7rmekLNh/preview')">Read Story</a>
+        </div>
+      </div>
+      
+     
+      
+       <!--STORY 35 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/vIsyMmO.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="story-content">
+          <h3>My Pink Love</h3>
+          <p>They were born to be rivals, but destiny had other plans.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1XFgoeKK_wktbFsZtvVBvYPW4YTC2Yrj8/preview')">Read Story</a>
+        </div>
+      </div>
+      
+        
+        
+     <!--STORY 36 -->  
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/uwj7LP8.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>My Only Sunshine</h3>
+          <p>They were each other's sun, but what happens when their sky is about to part?.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+        
+     <!--STORY 37 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/bxZJdaz.jpeg" alt="Apple">
+        </div>
+        <div class="story-content">
+          <h3>Apple</h3>
+          <p>New eyes, new life, new love. She's seeing it all for the first time.</p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/12Ys9OwNfzjmjA3OHWYNOyXMCiFdSKiyt/preview')">Read Story</a>
+        </div>
+      </div>
+      
+        
+        
+        
+       <!--STORY 38  -->
+      
+      <div class="story-card mature-content-border">
+        <div class="story-image">
+          <img src="https://i.imgur.com/PYB0ROe.jpeg" alt="Dangerous Queen">
+        </div>
+        <div class="story-content">
+          <h3>Dangerous Queen</h3>
+          <p>She rules with silence, strikes with secrets—and love was never part of the plan.</p>
+          <p><span class="flash-text mature-content">Mature Content</span></p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Tu7l1H5xMq1z73WAswQuPb1A2YPpHQMT/preview')">Read Story</a>
+        </div>
+      </div>
+      
+         
+        
+     <!--STORY 39  --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/1CUgIgW.jpeg" alt="" loading="lazy">
+        </div>
+        <div class="story-content">
+          <h3>Petrichor Volume 2</h3>
+          <p>The rain remembers what they won’t say aloud—and every drop carries a secret.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Z_4kTIg-Nhd1O66Xvf4UiELJK9skenmZ/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+        
+        
+    <!--STORY 40  --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/tnDdP09.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>7 Years</h3>
+          <p>What if love that’s never fought… suddenly forgets how to stay?.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+
+       <!--STORY 41  --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/sGybpyX.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Stuck With Me</h3>
+          <p>A lawyer who never loses meets the prosecutor who breaks her perfect world.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+
+
+       <!--STORY 42 -->  
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/l82w9FB.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>About Galaxy</h3>
+          <p>She designs beauty for the world—but hides her own behind a scar.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+
+      <!--STORY 43 -->  
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/l53WdQX.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>I Love You</h3>
+          <p>Falling for your employee was never part of the business plan.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+
+      
+
+      <!--STORY 44 -->  
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/OlB8CF8.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Gap</h3>
+          <p>She grew up idolizing her. Now she works under her icy gaze.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1OyP5Y2JqIyzG_24ardYE3gBqiB0Ufztz/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+
+
+      <!--STORY 45  -->  
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/suzg78a.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Mate</h3>
+          <p>Her fortune said she’d meet her soulmate. She never said it would be a girl.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1QQIySMxJJ5iDUXGOnspsK_niCk3vi4GH/preview')">Read Story</a>
+        </div>
+      </div>
+      
+     
+
+
+      <!--STORY 46 -->  
+      
+      <div class="story-card mature-content-border">
+        <div class="story-image">
+          <img src="https://i.imgur.com/W8SzoNH.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Lyric</h3>
+          <p>She writes songs no one hears—until one woman starts listening between the lines.</p>
+          <p><span class="flash-text mature-content">Mature Content</span>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1LmENgRWghkvRdDgf7XuYnvfMcrxF1Y5E/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+
+
+      <!--STORY 47 -->  
+      
+      <div class="story-card mature-content-border">
+        <div class="story-image">
+          <img src="https://i.imgur.com/LeL6MFF.png" alt="No.5">
+        </div>
+        <div class="story-content">
+          <h3>No.5</h3>
+          <p>She was just another name on the list—until number five made her question everything.</p>
+          <p><span class="flash-text mature-content">Mature Content</span>
+          <p><span class="flash-text complete-story">Completed</span></p>
+         <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1NSxIudS0qLDjSy__h3DxC3r68tRO9LpN/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+
+
+      <!--STORY 48 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/aMD1Vrn.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>4P Love Is Around</h3>
+          <p>To win her heart again, she’ll rewrite every memory.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+
+      <!--STORY 49 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/tsHnjLX.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Arpo</h3>
+          <p>She confessed a thousand times. Will the next one be the last?.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+
+      <!--STORY 50 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/MKUx8pq.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Ashes Of Our Hearts</h3>
+          <p>When love blooms in ruin, even ashes remember what burned.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+        <!--STORY 51 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Ow9VwXH.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Careless Whisper (Unedited Version)</h3>
+          <p>She had it all — until love whispered her undoing.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+        <!--STORY 52 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Y34oUKQ.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Curtain Love</h3>
+          <p>She married for survival. She stayed for love.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+        
+      
+      
+        <!--STORY 53 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/x1fEIRo.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>God: When God Is In Love (Volume 1)</h3>
+          <p>What if every word you speak could bless — or destroy — the one you love?.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+
+        <!--STORY 54 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/rr5mjKE.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Like A Palette</h3>
+          <p>She’s art. She’s chaos. Together, they’re a masterpiece.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+      
+        <!--STORY 55 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/wiaDPdt.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Little Bit, Little More</h3>
+          <p>She didn’t fall all at once — just a little bit, a little more, every day.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+        
+        
+      
+        <!--STORY 56 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/2O5CXAC.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Love Begins With A Terrible Kiss</h3>
+          <p>She was dumped for kissing wrong—until love kissed her right.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+        <!--STORY 57 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/MFUdc1Z.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Luv Is Just Love</h3>
+          <p>She’s close enough to see—but too far to touch.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+        <!--STORY 58 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/qPfiyS8.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>More And More</h3>
+          <p>She thought one heartbreak was enough — but love kept coming back, more and more.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+      
+        <!--STORY 59 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/nCHBvhC.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Only One Answer</h3>
+          <p>She’s got a checklist for college dreams: join a band, stargaze, fall in love. But destiny’s already written one answer.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      
+        <!--STORY 60 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/62IOf79.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Predict</h3>
+          <p>She didn’t believe in fate—until it made her fall.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+      
+        <!--STORY 61 -->  
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Kl10mNy.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Remain (Volume 1)</h3>
+          <p>How do you love someone you were never meant to forget?.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!--STORY 62 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/triz4fU.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Remain (Volume 2)</h3>
+          <p>Some people leave, but their love remains.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      <!--STORY 63 --> 
+      
+        <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/6Bik0pj.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Rooftop Desire</h3>
+          <p>Two women from different worlds meet under city lights — one guarded, one wild. One night changes everything.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      <!--STORY 64 -->
+      
+        <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/f9Kyaxh.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Smile My Tutor</h3>
+          <p>She’s failing math. She’s tutoring for cash. Neither expected love to be the hardest lesson.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+      <!--STORY 65-->
+      
+        <div class="story-card mature-content-border">
+        <div class="story-image">
+          <img src="https://i.imgur.com/d1U1w9n.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Shape of Status</h3>
+          <p>By day she’s the boss. By night, she kneels.</p>
+          <p><span class="flash-text mature-content">Mature Content</span>
+          <p><span class="flash-text complete-story">Completed</span></p>
+         <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1KMVpf-QpzHbEwMFWrV57qfEgQ4EHkFtU/preview')">Read Story</a>
+        </div>
+      </div>
+      
+       
+      
+      
+      <!--STORY 66 -->
+    
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Z9rFryQ.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Stop Being Evil (To Your Lover)</h3>
+          <p>What if the one who drives you crazy is also the one who owns your heart?.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+      
+      <!--STORY 67 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/JrhNxPa.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Stop Your Heart (For Me)</h3>
+          <p>When survival blurs the line between choice and desperation, how far would you go to keep your dignity?.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!--STORY 68 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/13eMiqm.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>The Dragon</h3>
+          <p>Heiress. Assassin. Heir to the Dragon Fire Gang. She kills without hesitation — until duty demands she marry her enemy’s daughter.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+      
+      
+      <!--STORY 69 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/jAPWC2s.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Until We Meet Again</h3>
+          <p>She used to be the victim. Now, she’s her bully’s boss.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!--STORY 70 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/PEC9I0s.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Warm Eyes</h3>
+          <p>She’s blind but sees the world with kindness. I only saw her as my escape — until she became my home.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!--STORY 71 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/A4wwj2G.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Wind's Trick</h3>
+          <p>When kindness hides secrets and smiles conceal storms.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+        <!--STORY 72 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/hZs1NO4.png" alt="911 Love Code">
+        </div>
+        <div class="story-content">
+          <h3>911 Love Code</h3>
+          <p>She receives a stranger's bag of lingerie, but when her secret 911 code opens</p>
+    <!-- <p><span class="flash-text complete-story">Completed</span></p> -->
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+
+        <!--STORY 73 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/ityk0E0.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Runaway</h3>
+          <p>She can’t run forever — fate always finds its way back.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Oy5BqvpmeKVa73H_qY3QeNlh9DcuG8B2/preview')">Read Story</a>
+        </div>
+      </div>
+      
+
+      
+        <!--STORY 74 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/w2vv6bL.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Be My Boo</h3>
+          <p>They broke up with unfinished words — now fate rewrites their love story.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+        <!--STORY 75 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/K1ZP1W5.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Chloe</h3>
+          <p>Every story she pens comes true… including the one about us.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       
+
+
+    <!--STORY 76 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/OKenpQN.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Hidden Love Trick</h3>
+          <p>A funeral. A vow of revenge. A love hidden beneath grief and guilt.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+
+      <!--STORY 77 --> 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/gT1OlVf.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Nope! I Don't Love You</h3>
+          <p>She woke up in a stranger’s bed — who swears she’s the love of her life.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    
+
+       <!--STORY 78 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/DH6rsrZ.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>The Chef's Favorite</h3>
+          <p>A fake love cooked up to escape family pressure, but the recipe works too well.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    
+
+       <!--STORY 79 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/irIqoYy.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>If I Stop Being Stubborn, Would You Love Me?</h3>
+          <p>She swore off love. Her family swore to fix her. She swore she’d fall anyway.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    
+
+
+       <!--STORY 80 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Z4pvN4o.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>I See You</h3>
+          <p>Waking up was the easy part — remembering the truth might destroy her.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    
+
+
+       <!--STORY 81 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/bAtogmg.jpeg" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Defeated By The Shadow Of Love</h3>
+          <p>She thought love would save her—but its shadow knew how to break her better than anyone else.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    
+
+
+       <!--STORY 82 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/uT3Wr5Q.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Rhythm (Volume 1)</h3>
+          <p>In a city pulsing with secrets, every heartbeat hides a story—and some rhythms are impossible to escape.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1yXX8hr8hnhuAZL1S3L-X7sygRml69NKe/preview')">Read Story</a>
+        </div>
+      </div>
+
+    
+
+
+       <!--STORY 83 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    -->
+
+
+       <!--STORY 84 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    -->
+
+
+       <!--STORY 85 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    -->
+
+
+       <!--STORY 86 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+    -->
+      
+      
+    </div>
+  </section>
+  
+  
+
+   <!-- ORIGINAL -->
+  
+  <section id="original-section">
+    <h2>Original</h2>
+    <div class="story-grid">
+        
+        <!--ORIGINAL 1-->
+        
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/PFqnE02.png" alt="Salt In Her Veins">
+        </div>
+        <div class="story-content">
+          <h3>Salt In Her Veins</h3>
+          <p>She came to claim a house. The island gave her a history—and a woman she couldn’t forget.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1RsCAcgXiS0XYBMBsw0uqfwMnEh_L8yTR/preview')">Read Story</a>
+        </div>
+      </div>
+        
+        <!--ORIGINAL 2-->
+        
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/lzqztmy.png" alt="Yesterday's Happiness">
+        </div>
+        <div class="story-content">
+          <h3>Yesterday's Happiness</h3>
+          <p>They were happy once. But yesterday doesn’t hold still—and neither do hearts that remember.</p>
+          <p><span class="flash-text short-story">Short Story</span></p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1z6oSxMoiCp55f_p5fP27qrOzKA1yxbtN/preview')">Read Story</a>
+        </div>
+      </div>
+
+      <!-- ORIGINAL 3 -->
+
+        <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/pFplKVc.png" alt="The Clockmaker's Daugther">
+        </div>
+        <div class="story-content">
+          <h3>The Clockmaker's Daugther</h3>
+          <p>She came to forget. But in a town where time stands still, love refuses to be forgotten.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1bdAEzOANPMZ0uMdD0LhpyqMGjpfujH_F/preview')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      <!-- ORIGINAL 4 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Y0faMa6.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Vengeance and Crippled</h3>
+          <p>Lyra enters a wealthy family’s estate under the disguise of a babysitter. Bound by strict rules and unspoken secrets, she soon discovers that not everything in the mansion is as it seems — and neither is she.</p>
+          <p><span class="flash-text ongoing-story">Ongoing</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://docs.google.com/document/d/15CmZLYgA0PKjEfFfkoyjB2ugIhFeHpshn-QNJdQYTZo/edit?usp=sharing')">Read Story</a>
+        </div>
+      </div>
+      
+      
+      <!-- ORIGINAL 5
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <p><span class="flash-text ongoing-story">Ongoing</span></p>
+          <a href="#" class="read-btn" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      -->
+      
+      
+      <!-- ORIGINAL 6
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <p><span class="flash-text ongoing-story">Ongoing</span></p>
+          <a href="#" class="read-btn" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      -->
+      
+      
+      
+    </div>
+  </section>
+  
+  
+  
+   <!-- BOYS LOVE -->
+  
+  <section id="bl-section">
+    <h2>BL Stories</h2>
+    <div class="story-grid">
+        
+        <!--BL 1-->
+        
+        <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/2VFvC3D.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Behind The Scenes</h3>
+          <p>On stage, they’re rivals. Behind the curtain, they’re everything but enemies.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1p4QScDCzIeRbsz2iX2pYP48g4mcYSGeD/preview')">Read Story</a>
+        </div>
+        </div>
+        
+        <!--BL 2-->
+        
+        <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/uSVMK5N.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>The Story Of Jayden And Dan Nuea</h3>
+          <p>Kidnapped, chained, and forced together — love finds them in the dark.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+        </div>
+
+      <!-- BL 3 -->
+
+        <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/T5OZVAC.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>My Golden Blood</h3>
+          <p>He was just human — until his blood became a vampire’s obsession.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/16_K3J6lbxCzAuyLByJbTcoXjUahjBqip/preview')">Read Story</a>
+        </div>
+        </div>
+      
+      
+      <!-- BL 4 -->
+      
+        <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/5y3LJp7.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>A Certain Someone</h3>
+          <p>He’s the transfer student. He’s the top of the class. Together — chaos and chemistry.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1L_fT4H3i5jqcLCGWrU_YoxjlSm4lvNAB/preview')">Read Story</a>
+        </div>
+        </div>
+      
+      
+      <!-- BL 5 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/dEZppzX.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Big Dragon</h3>
+          <p>A rivalry built on ego turns into a dangerous attraction when two enemies wake up tangled in a scandal neither can forget.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      
+      <!-- BL 6 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/MplyzyT.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Pit Babe 1</h3>
+          <p>On the hottest track in the city, a fierce racer plays with danger—both on the road and in forbidden locker-room games.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      
+      <!-- BL 7 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/7oE5L8n.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Counter Attack</h3>
+          <p>When love turns into revenge, a jilted man plots payback—only to fall again for the one who broke him.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1qgWsC7PIzLAr-noY9ldE3ENKXowvjOmU/preview')">Read Story</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 8 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/vDB9Tdt.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Desire Nong Jian</h3>
+          <p>He wanted control, but desire has its own rules—and one reckless night changes everything.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 9 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Oi8iWaC.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>North: How Much Is Your Love</h3>
+          <p>Two hearts on opposite paths collide under the northern lights, testing how far love can really go.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 10 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/2ceyOid.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>My Sweetheart Jom</h3>
+          <p>He was sent to the countryside for punishment — but found a reason to stay.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 11 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/EN8PNqs.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>My Stubborn (Vol.2)</h3>
+          <p>He keeps telling himself they’re not meant to be… but his heart won’t stop choosing him.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1aeeSwvDoBBvH7SQXZNP5niNzqSdIrr3w/preview')">Read Story</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 12 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/Pmdvfmi.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Nitrogen</h3>
+          <p>He swore he didn’t care… until one night in the rain, he shouted the truth: ‘I LIKE YOU!’</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 13 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/fEbGdfO.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Tossara End Of Love</h3>
+          <p>He’s busy with school, stage decorations, and swimming practice—until someone suddenly says: ‘I want to chase you.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 14 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/FSz8CRv.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Theory Of Love</h3>
+          <p>He’s in love with his best friend… but his best friend is in love with everyone else.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      
+      <!-- BL 15 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/IVIrTe0.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Pit Babe 2</h3>
+          <p>On the track, he’s untouchable. Off the track, he’s a scandal waiting to burn everything down.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      
+      <!-- BL 16 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/k2HHWCP.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Cutie Pie</h3>
+          <p>They’ve been engaged since childhood—but one wants freedom, and the other wants the perfect fiancé.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      
+      <!-- BL 17 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/44JsCHQ.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Your Sky</h3>
+          <p>One birthday party. One protective sibling. One stranger named ‘Fah.’ His quiet sky is about to explode.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/10jaWDOwQCO_f-krm3sbIWtaMqiRMVmHN/preview')">Read Story</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 18 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/9LFwhfy.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Love Sea</h3>
+          <p>Love is boring—until your boyfriend, his best friend, and jealousy make it dangerous.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 19 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/ppr9zkx.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Sunset Vibes</h3>
+          <p>He dreamed of a mysterious man for years… until one Tinder match made him real.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1F2_KWytk8lAiWXP8S1ihmoVigTiQCVDL/preview')">Read Story</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 20 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/CBAAc4H.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Invisible Moon</h3>
+          <p>He’s the most famous idol in Thailand… but also the loneliest. And only the invisible boy can see him.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available in a bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 21 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/3tXEglB.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Love Sand</h3>
+          <p>He came to forget, but the sea brought him back.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 22 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/pwanLNw.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Love Director 1</h3>
+          <p>He directed love stories for a living — until he fell into one he couldn’t control.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 23 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/1Q7ufmj.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Love Director 2</h3>
+          <p>What began as acting turned real — now love’s no longer just a role.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 24 --> 
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/hCkfSuT.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Book 1: Day and Brick (Love Syndrome)</h3>
+          <p>Revenge led him to his enemy — but love made him stay.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 25 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/jXzcasW.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Ken and Fang</h3>
+          <p>He hides behind pride. The other behind charm. But love sees through it all.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+
+      
+      
+      <!-- BL 26 -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/MVNlW27.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Love Syndrome: Keith And Roman</h3>
+          <p>A mafia boss and a tattooed protector — two broken souls bound by danger and desire.</p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1RlClh0bNoaYhmPq3DQY5iRlXq4QTZW2A/preview')">Read Story</a>
+        </div>
+      </div>
+
+      <!-- BL 27 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/EUxoE2D.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Naughty Babe</h3>
+          <p>He’s trouble in human form. And he’s about to steal your heart.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+       <!-- BL 28 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/ofKdTXx.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>The Sign</h3>
+          <p>Bound by destiny, guarded by the Naga — two souls meet where myth becomes love.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+       <!-- BL 29 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/IGcvzjE.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>East: Tag! You're Mine</h3>
+          <p>He broke his heart once — now fate brings him back for round two.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+       <!-- BL 30 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/9rXr8pL.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Tiger Duenna</h3>
+          <p> A mafia heir meets his match — not in war, but on the football field.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+       <!-- BL 31 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/omrm0Rx.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Spare Me Your Mercy</h3>
+          <p>Mercy was never the point—he wanted to see how far love would go before it broke him.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      <!-- BL 32 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/pckEpnK.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Revamp The Undead Story</h3>
+          <p>He was never meant to feel again—until one man made his undead heart remember.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!-- BL 33 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/7v69Jyp.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Prai Song</h3>
+          <p>He wrote it to forget—but one voice made him remember everything.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!-- BL 34 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/3JkEczk.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Deja Vu</h3>
+          <p>They’ve met before—somewhere between memory, longing, and the lie they both believed.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+      <!-- BL 35 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/jOIv5vP.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Never Let Me Go</h3>
+          <p>He held on too long. He never learned how to let go.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+    <!-- BL 36 -->
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/jXFCy77.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>We Are</h3>
+          <p>They weren’t supposed to become a we—but something kept pulling them back to the beginning.</p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      
+      
+    <!-- BL 37 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      -->
+      
+      
+      <!-- BL 38 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      -->
+      
+      <!-- BL 39 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      -->
+      
+      
+      <!-- BL 40 
+      
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <a href="#" class="read-btn coming-soon" onclick="openModal('')">Available In A Bit</a>
+        </div>
+      </div>
+      
+      -->
+      
+      
+    </div>
+  </section>
+
+  
+
+  <!-- About -->
+  
+  <section id="about-section">
+    <h2>About Us</h2>
+    <div class="about-section">
+      <div class="about-content">
+        <p>KALEVEXS is a platform where creativity finds a home. We believe that storytelling has the power to inspire, connect, and transform.</p>
+        <p>Our mission is to give writers a stage and readers an escape into boundless imagination. Every story shared here is a testament to the human spirit's endless capacity for wonder.</p>
+      </div>
+    </div>
+  </section>
+  
+  
+   <!-- Disclaimer -->
+  
+  <section id="disclaimer-section">
+    <h2>Disclaimer</h2>
+    <div class="disclaimer-section">
+      <div class="disclaimer-content">
+        <p>Stories featured on KALEVEXS are the creative works of their original authors. I do not claim ownership of any of these stories, nor am I affiliated with the creators. This website is a personal project created to share, read, and enjoy stories in one place.</p>
+        <p>If you are the rightful owner of any content and would like it to be removed or credited differently, please contact me through the form provided in the Contact section.</p>
+      </div>
+    </div>
+  </section>
+  
+<!-- Disclaimer -->
+
+  <!-- Contact -->
+  
+<section id="contact-section">
+  <h2>Contact Us</h2>
+  <div class="contact">
+    <div class="contact-form">
+      
+      <!-- Embed Google Form -->
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfmaoSbppVZ3dt8C8EWU9UUHCxB2mJvSLQtxLECQPZ0WhBGrQ/viewform?usp=header" 
+        width="100%" 
+        height="600" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+        Loading…
+      </iframe>
+    </div>
+  </div>
+</section>
+  
+<!-- Contact -->
+  
+  
+  <!-- New Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>KALEVEXS</h3>
+        <p>Where stories come to life. Discover new worlds, meet unforgettable characters, and lose yourself in tales that will stay with you long after the last page.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Explore</h3>
+        <p><a href="#home-section" style="color: var(--text-light); text-decoration: none;">Home</a></p>
+        <p><a href="#stories-section" style="color: var(--text-light); text-decoration: none;">GL Stories</a></p>
+        <p><a href="#bl-section" style="color: var(--text-light); text-decoration: none;">BL Stories</a></p>
+        <p><a href="#original-section" style="color: var(--text-light); text-decoration: none;">Originals</a></p>
+        <p><a href="#about-section" style="color: var(--text-light); text-decoration: none;">About Us</a></p>
+        <p><a href="#disclaimer-section" style="color: var(--text-light); text-decoration: none;">Disclaimer</a></p>
+        <p><a href="#contact-section" style="color: var(--text-light); text-decoration: none;">Contact</a></p>
+        
+      </div>
+      
+      
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=61581480275081" class="social-link">Facebook</a> <br>
+          <a href="https://www.tiktok.com/@kalevexs" class="social-link">Tiktok</a> <br>
+      <!--<a href="#" class="social-link">📸</a> <br>
+          <a href="#" class="social-link">🐦</a> -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 KALEVEXS. All rights reserved. Crafted with passion for storytelling.</p>
+    </div>
+  </footer>
+  
+
+  <!-- Story Reader -->
+  
+  <div class="modal" id="storyModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Story Reader</h2>
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+      </div>
+      <iframe id="storyFrame" src=""></iframe>
+    </div>
+  </div>
+  
+
+  <!-- Notification Modal Square 
+  
+  <div class="notification-modal" id="notificationModal">
+    <div class="notification-content">
+      <div class="notification-header">
+        <h2>🎉 New Story Added!</h2>
+      </div>
+      <div class="notification-body">
+        <h3>6 New BL Stories</h3>
+         <p>Will be ready in a little bit</p> 
+          <div class="notification-actions">
+          <button class="notification-btn primary" onclick="closeNotification()">Check Now</button>
+          <button class="notification-btn secondary" onclick="dismissNotification()">Maybe Later</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  -->
+
+   <!-- Notes Modal -->
+  
+  <div class="notes-modal" id="notesModal">
+    <div class="notes-header">
+      <h3>Important Notes & Disclaimer</h3>
+      <button class="notes-close" onclick="closeNotesModal()">&times;</button>
+    </div>
+    <div class="notes-body">
+      <p><strong>Disclaimer:</strong> Stories featured on KALEVEXS are the creative works of their original authors. I do not claim ownership of any of these stories, nor am I affiliated with the creators.</p>
+ <!-- <p><strong>Translation Note:</strong> Some stories have been translated from Spanish to English. While care has been taken, translations may not always be fully accurate to the original meaning.</p> -->
+      <p><strong>Content Warning:</strong> Some stories contain mature content. Reader discretion is advised.</p>
+      <p><strong>Feedbacks/Suggestions:</strong> For any suggestions, feel free to send us a message at the contact us page.</p>
+    </div>
+    <div class="notes-timer" id="notesTimer">This message will close in 30 seconds</div>
+  </div>
+
+  <!-- Mature Content Warning Modal -->
+  <div class="mature-warning-modal" id="matureWarningModal">
+    <div class="mature-warning-content">
+      <div class="mature-warning-header">
+        <h2>⚠️ Mature Content Warning</h2>
+      </div>
+      <div class="mature-warning-body">
+        <p>This story contains mature content that may not be suitable for all readers.</p>
+        <p>Please ensure you are of appropriate age and discretion before proceeding.</p>
+        <div class="mature-warning-timer" id="matureWarningTimer">You can continue in 5 seconds</div>
+        <div class="mature-warning-actions">
+          <button class="mature-warning-btn cancel" onclick="cancelMatureWarning()">Cancel</button>
+          <button class="mature-warning-btn continue" id="continueMatureBtn" onclick="proceedToStory()" disabled>Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script>
+    // Store the current story URL for mature content warning
+    let currentStoryUrl = '';
+    
+    // Drawer functionality
+    const menuIcon = document.getElementById('menuIcon');
+    const drawer = document.getElementById('drawer');
+    const overlay = document.getElementById('overlay');
+    const drawerLinks = document.querySelectorAll('.drawer-link');
+
+    function toggleDrawer() {
+      menuIcon.classList.toggle('open');
+      drawer.classList.toggle('open');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : 'auto';
+    }
+
+    menuIcon.addEventListener('click', toggleDrawer);
+    overlay.addEventListener('click', toggleDrawer);
+    
+    drawerLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        toggleDrawer();
+        const targetId = link.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          setTimeout(() => {
+            window.scrollTo({
+              top: target.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }, 300);
+        }
+      });
+    });
+    
+    
+
+    // Modal functionality
+    function openModal(docUrl) {
+      if (docUrl) {
+        // Check if this is a mature content story
+        const storyCard = event.target.closest('.story-card');
+        if (storyCard && storyCard.classList.contains('mature-content-border')) {
+          // Show mature content warning
+          showMatureWarning(docUrl);
+        } else {
+          // Open story directly
+          document.getElementById("storyModal").classList.add("active");
+          document.getElementById("storyFrame").src = docUrl;
+          document.body.style.overflow = 'hidden';
+          
+          // Blur the notes modal when story modal is open
+          const notesModal = document.getElementById("notesModal");
+          if (notesModal.classList.contains("show")) {
+            notesModal.classList.add("blurred");
+          }
+        }
+      }
+    }
+    
+    function closeModal() {
+      document.getElementById("storyModal").classList.remove("active");
+      setTimeout(() => {
+        document.getElementById("storyFrame").src = "";
+      }, 400);
+      document.body.style.overflow = 'auto';
+      
+      // Remove blur from notes modal when story modal is closed
+      const notesModal = document.getElementById("notesModal");
+      notesModal.classList.remove("blurred");
+    }
+
+    // Notification Modal functionality
+    function showNotification() {
+      document.getElementById("notificationModal").classList.add("active");
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeNotification() {
+      document.getElementById("notificationModal").classList.remove("active");
+      document.body.style.overflow = 'auto';
+      
+      // Scroll to the newly added stories (last two stories in the grid)
+      const storyCards = document.querySelectorAll('.story-card');
+      if (storyCards.length >= 2) {
+        const lastStory = storyCards[storyCards.length - 1];
+        const secondLastStory = storyCards[storyCards.length - 2];
+        
+        // Scroll to the second last story (Defeated By The Shadow Of Love)
+        const offsetTop = secondLastStory.offsetTop - 100;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+        
+        // Add temporary highlight effect
+        secondLastStory.style.boxShadow = '0 0 30px rgba(255, 64, 129, 0.8)';
+        secondLastStory.style.transform = 'scale(1.02)';
+        secondLastStory.style.transition = 'all 0.5s ease';
+        
+        // Also highlight the last story (Rhythm Volume 1)
+        lastStory.style.boxShadow = '0 0 30px rgba(124, 77, 255, 0.8)';
+        lastStory.style.transform = 'scale(1.02)';
+        lastStory.style.transition = 'all 0.5s ease';
+        
+        // Remove highlight after 3 seconds
+        setTimeout(() => {
+          secondLastStory.style.boxShadow = '';
+          secondLastStory.style.transform = '';
+          lastStory.style.boxShadow = '';
+          lastStory.style.transform = '';
+        }, 3000);
+      }
+    }
+    
+    function dismissNotification() {
+      document.getElementById("notificationModal").classList.remove("active");
+      document.body.style.overflow = 'auto';
+    }
+
+    // Notes Modal functionality
+    let notesTimer;
+    let secondsLeft = 30;
+    let notesInterval;
+
+    function showNotesModal() {
+      // Don't show notes modal if story modal is active
+      if (document.getElementById("storyModal").classList.contains("active")) {
+        // Schedule to show after story modal is closed
+        setTimeout(showNotesModal, 60000);
+        return;
+      }
+      
+      document.getElementById("notesModal").classList.add("show");
+      document.body.style.overflow = 'auto';
+      
+      // Reset timer
+      secondsLeft = 30;
+      document.getElementById("notesTimer").textContent = `This message will close in ${secondsLeft} seconds`;
+      
+      // Start countdown timer
+      notesTimer = setInterval(() => {
+        secondsLeft--;
+        document.getElementById("notesTimer").textContent = `This message will close in ${secondsLeft} seconds`;
+        
+        if (secondsLeft <= 0) {
+          closeNotesModal();
+        }
+      }, 1000);
+    }
+
+    function closeNotesModal() {
+      document.getElementById("notesModal").classList.remove("show");
+      document.getElementById("notesModal").classList.remove("blurred");
+      if (notesTimer) {
+        clearInterval(notesTimer);
+      }
+      
+      // Set timeout to show the modal again after 15 seconds
+      setTimeout(showNotesModal, 60000);
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Scroll animations
+    const sections = document.querySelectorAll("section");
+    const storyCards = document.querySelectorAll(".story-card");
+    
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.8;
+      
+      // Reveal sections
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add("visible");
+        }
+      });
+      
+      // Reveal story cards instantly (no stagger delay)
+      storyCards.forEach((card) => {
+    const top = card.getBoundingClientRect().top;
+    if (top < trigger) {
+    card.classList.add("visible");  // Add visible immediately
+  }
+});
+};
+    
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Add pulse animation to hero button occasionally
+    const heroButton = document.querySelector('.hero a');
+    setInterval(() => {
+      heroButton.style.animation = 'pulse 2s ease-in-out';
+      setTimeout(() => {
+        heroButton.style.animation = '';
+      }, 2000);
+    }, 8000);
+
+    // Show notification modals
+    // Show main notification after 1 second
+    setTimeout(showNotification, 1000);
+    
+    // Show notes modal after 5 seconds
+    setTimeout(showNotesModal, 5000);
+    
+    // Mature Content Warning Modal
+    let matureWarningTimer;
+    let matureSecondsLeft = 5;
+    
+    function showMatureWarning(docUrl) {
+      currentStoryUrl = docUrl;
+      document.getElementById("matureWarningModal").classList.add("active");
+      document.body.style.overflow = 'hidden';
+      
+      // Reset timer
+      matureSecondsLeft = 5;
+      document.getElementById("matureWarningTimer").textContent = `You can continue in ${matureSecondsLeft} seconds`;
+      document.getElementById("continueMatureBtn").disabled = true;
+      
+      // Start countdown timer
+      matureWarningTimer = setInterval(() => {
+        matureSecondsLeft--;
+        document.getElementById("matureWarningTimer").textContent = `You can continue in ${matureSecondsLeft} seconds`;
+        
+        if (matureSecondsLeft <= 0) {
+          document.getElementById("continueMatureBtn").disabled = false;
+          document.getElementById("matureWarningTimer").textContent = "You can now continue";
+          clearInterval(matureWarningTimer);
+        }
+      }, 1000);
+    }
+    
+    function cancelMatureWarning() {
+      document.getElementById("matureWarningModal").classList.remove("active");
+      document.body.style.overflow = 'auto';
+      clearInterval(matureWarningTimer);
+      currentStoryUrl = '';
+    }
+    
+    function proceedToStory() {
+      document.getElementById("matureWarningModal").classList.remove("active");
+      document.body.style.overflow = 'auto';
+      clearInterval(matureWarningTimer);
+      
+      // Open the story modal
+      document.getElementById("storyModal").classList.add("active");
+      document.getElementById("storyFrame").src = currentStoryUrl;
+      
+      // Blur the notes modal when story modal is open
+      const notesModal = document.getElementById("notesModal");
+      if (notesModal.classList.contains("show")) {
+        notesModal.classList.add("blurred");
+      }
+      
+      currentStoryUrl = '';
+    }
+  </script>
+
+</body>
+</html>

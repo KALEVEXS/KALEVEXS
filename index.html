@@ -32,12 +32,12 @@
     }
 
     /* General Reset */
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    
+
     body {
       font-family: "Lexend", sans-serif;
       scroll-behavior: smooth;
@@ -215,7 +215,7 @@
     /* Enhanced Hero Section */
     .hero {
       height: 100vh;
-      background: linear-gradient(135deg, rgba(27, 38, 59, 0.9) 0%, rgba(65, 90, 119, 0.9) 100%), 
+      background: linear-gradient(135deg, rgba(27, 38, 59, 0.9) 0%, rgba(65, 90, 119, 0.9) 100%),
                   url('https://i.imgur.com/jgj292K.png') no-repeat center center/cover;
       display: flex;
       flex-direction: column;
@@ -229,13 +229,13 @@
       width: 100%;
       animation: gradientShift 10s ease-in-out infinite alternate;
     }
-    
+
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-    
+
     .hero-content {
       position: relative;
       z-index: 2;
@@ -261,12 +261,12 @@
       background-clip: text;
       animation: textGlow 3s ease-in-out infinite alternate;
     }
-    
+
     @keyframes textGlow {
       0% { filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5)); }
       100% { filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.8)); }
     }
-    
+
     .hero p {
       max-width: 750px;
       font-size: 1.6rem;
@@ -435,13 +435,13 @@
       min-height: 320px;
       backdrop-filter: blur(10px);
     }
-    
+
     /* Red border for mature content */
     .story-card.mature-content-border {
       border: 4px solid var(--danger);
       box-shadow: 0 0 30px rgba(239, 68, 68, 0.3);
     }
-    
+
     .story-card.visible {
       transform: translateY(0);
       opacity: 1;
@@ -451,13 +451,13 @@
       box-shadow: 0 35px 70px rgba(0,0,0,0.25);
       border-color: #667eea;
     }
-    
+
     .story-card.mature-content-border:hover {
       transform: translateY(-20px) !important;
       box-shadow: 0 35px 70px rgba(239, 68, 68, 0.4);
       border-color: #ef4444;
     }
-    
+
     .story-image {
       width: 45%;
       min-width: 220px;
@@ -465,7 +465,7 @@
       overflow: hidden;
       position: relative;
     }
-    
+
     .story-image img {
       width: 100%;
       height: 100%;
@@ -477,7 +477,7 @@
       transform: scale(1.12);
       filter: brightness(1) contrast(1.05);
     }
-    
+
     .story-content {
       width: 55%;
       padding: 2.2rem;
@@ -486,7 +486,7 @@
       justify-content: space-between;
       background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(248, 249, 250, 0.98) 100%);
     }
-    
+
     .story-content h3 {
       margin: 0;
       font-size: 1.8rem;
@@ -545,10 +545,10 @@
       transform: translateY(-5px);
       box-shadow: 0 15px 35px rgba(245, 87, 108, 0.6);
     }
-    
+
     /* Enhanced Coming Soon Button */
     .read-btn.coming-soon {
-      background: linear-gradient(135deg, #94a3b8, #64748b); 
+      background: linear-gradient(135deg, #94a3b8, #64748b);
       cursor: not-allowed;
       box-shadow: 0 6px 20px rgba(148, 163, 184, 0.4);
     }
@@ -557,10 +557,10 @@
       transform: none;
       box-shadow: 0 6px 20px rgba(148, 163, 184, 0.4);
     }
-    
+
     /* Enhanced Request Button */
     .read-btn.request-now {
-      background: linear-gradient(135deg, #10b981, #059669); 
+      background: linear-gradient(135deg, #10b981, #059669);
       cursor: pointer;
       box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
     }
@@ -568,7 +568,7 @@
       background: linear-gradient(135deg, #059669, #047857);
       transform: translateY(-5px);
       box-shadow: 0 12px 30px rgba(16, 185, 129, 0.6);
-    }   
+    }
 
     /* Enhanced Flashing Text */
     .flash-text {
@@ -590,7 +590,7 @@
       animation: flash 1.5s infinite;
       box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
     }
-    
+
     .discontinue-story {
       color: white;
       background: linear-gradient(135deg, #d946ef, #a855f7);
@@ -604,14 +604,14 @@
       animation: flash 1.5s infinite;
       box-shadow: 0 4px 20px rgba(74, 222, 128, 0.4);
     }
-    
+
     .short-story {
       color: white;
       background: linear-gradient(135deg, var(--warning), #ea580c);
       animation: flash 1.5s infinite;
       box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
     }
-    
+
     .ongoing-story {
       color: white;
       background: linear-gradient(135deg, #2563eb, #1d4ed8);
@@ -675,7 +675,7 @@
       font-family: "Lexend", sans-serif;
       text-shadow: 0 2px 4px rgba(0,0,0,0.08);
     }
-    
+
     /* Enhanced Disclaimer Section */
     .disclaimer-section {
       background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
@@ -1000,7 +1000,7 @@
     .notes-modal.show.blurred {
       filter: blur(8px);
     }
-    
+
     .notes-header {
       background: linear-gradient(135deg, #dc2626, #ea580c);
       color: white;
@@ -1157,7 +1157,7 @@
         transform: translateY(0);
       }
     }
-    
+
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -1168,7 +1168,7 @@
         transform: translateY(0);
       }
     }
-    
+
     @keyframes float {
       0%, 100% {
         transform: translateY(0px) rotate(0deg);
@@ -1177,7 +1177,7 @@
         transform: translateY(-35px) rotate(180deg);
       }
     }
-    
+
     @keyframes pulse {
       0% {
         transform: scale(1);
@@ -1273,7 +1273,7 @@
       transform: translateY(-8px);
       box-shadow: 0 20px 50px rgba(245, 87, 108, 0.6);
     }
-    
+
     /* Responsive Design */
     @media (max-width: 768px) {
       nav {
@@ -1401,7 +1401,7 @@
   <!-- Overlay -->
   <div class="overlay" id="overlay"></div>
 
-    
+
   <!-- Hero -->
   <section class="hero" id="home-section">
     <div class="floating-elements">
@@ -1422,9 +1422,9 @@
   <section id="stories-section">
     <h2>GL Stories</h2>
     <div class="story-grid">
-        
+
         <!--STORY 1-->
-        
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/GbNzLvy.jpeg" alt="Enemies With Benefits">
@@ -1436,9 +1436,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1ky1cStbCsPJT-iYnvoHxDkAaemP5H-Gy/preview')">Read Story</a>
         </div>
       </div>
-        
+
         <!--STORY 2-->
-        
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/WHMjMRZ.jpeg" alt="Buy My Boss">
@@ -1450,9 +1450,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/12rxfqeEMXJIM4TT2TAQL6bqcLtQ0uPB7/preview')">Read Story</a>
         </div>
       </div>
-        
+
       <!--STORY 3 -->
-      
+
        <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/foFvJqm.jpeg" alt="The Air">
@@ -1464,10 +1464,10 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1RSo-Llza25_ImHwK6_9Ii-MaTzdXBYUC/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 4 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/9anAWX0.jpeg" alt="The Earth" loading="lazy">
@@ -1479,9 +1479,9 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1QJLrazFATjpMytyaWF4Kq2L_mdGQLjXx/preview')">Read Story</a>
         </div>
       </div>
-      
+
       <!--STORY 5 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/FBcxRjr.jpeg" alt="The Fire">
@@ -1492,10 +1492,10 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 6 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/SF8tYUw.jpeg" alt="The Water">
@@ -1506,9 +1506,9 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       <!--STORY 7 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Pfx0sxo.jpeg" alt="A Shadow Underneath the Moon">
@@ -1520,10 +1520,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1uokWkNeRnVVPf-0C2sDP4FRSWvLXFnqT/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 8 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/IIrmTwx.jpeg" alt="Built in Love">
@@ -1535,10 +1535,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/19Wj2VQqrdOwzPPl_w8xW1mhMYvzciKp0/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 9 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/i6UAafa.jpeg" alt="Chasing Love">
@@ -1550,10 +1550,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1fE9cLjeO6sqvM3WFn2XvnVlGBo_iJltS/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 10 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/BwpoEiU.jpeg" alt="Claire Bell">
@@ -1565,10 +1565,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1ve2QF7YCtWa8sqZ4A5C1BNjEvO4f5gle/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 11 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/CaEWSPJ.jpeg" alt="Cranium">
@@ -1580,10 +1580,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1qXtcXLRwRLOzs8h67mG5nlOqdrTAAKF8/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 12 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/yCA41Jz.jpeg" alt="Harmony Secret">
@@ -1595,9 +1595,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1fDn0zYGxGj1Q5sDlQmHCBFPjsfZWMGxZ/preview')">Read Story</a>
         </div>
       </div>
-      
+
       <!--STORY 13 -->
-      
+
        <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/pISIxXn.jpeg" alt="Irresistible">
@@ -1609,9 +1609,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Yewwwpi1oUuD3rZLsroY6cJKNDintcKn/preview')">Ready Story</a>
         </div>
       </div>
-      
-      <!--STORY 14 -->  
-      
+
+      <!--STORY 14 -->
+
        <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/fwB4OkB.jpeg" alt="Love Fibre">
@@ -1623,9 +1623,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/14eCkmnvqfL6fBtMr5SQQej4o0vdHO5Gy/preview')">Read Story</a>
         </div>
       </div>
-        
-        <!--STORY 15 --> 
-      
+
+        <!--STORY 15 -->
+
        <div class="story-card mature-content-border">
         <div class="story-image">
           <img src="https://i.imgur.com/KdM99bQ.jpeg" alt="Obsessed">
@@ -1638,9 +1638,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Ah0W2_Me2D29fuiInHh1b6zRaVVZPk1o/preview')">Read Story</a>
         </div>
       </div>
-      
-        <!--STORY 16 --> 
-      
+
+        <!--STORY 16 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/FqCWq57.jpeg" alt="Petrichor">
@@ -1652,9 +1652,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1LVO8NOKbM_ozO0OZt3OqM5KDwDQaYIBj/preview')">Read Story</a>
         </div>
       </div>
-      
-       <!--STORY 17 --> 
-      
+
+       <!--STORY 17 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ImhXyF8.jpeg" alt="Player">
@@ -1666,10 +1666,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1uJGeGM_-Iom_MthB_jTSem0sqPdE5D68/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-       <!--STORY 18 --> 
-      
+
+
+       <!--STORY 18 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/kuXyaRV.jpeg" alt="Poisonous Love">
@@ -1681,10 +1681,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1MbSP7RazvhSYGVPKu-nOIUCbyZMO2wvR/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-       <!--STORY 19 --> 
-      
+
+
+       <!--STORY 19 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/8WVynMP.jpeg" alt="Professor with Benefits">
@@ -1696,10 +1696,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/18xkM-AfK40vn9Bmc7K0fV37JveHPCIkW/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-       <!--STORY 20 --> 
-      
+
+
+       <!--STORY 20 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/1cSsYc9.jpeg" alt="Queendom">
@@ -1711,9 +1711,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1csmqBqDs8n3SR3iXkQEfFsN6mgQn-Mq7/preview')">Read Story</a>
         </div>
       </div>
-      
-       <!--STORY 21 --> 
-      
+
+       <!--STORY 21 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ECE7w0X.jpeg" alt="Roller Coaster">
@@ -1725,9 +1725,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1A-d9SvDaBFFlCKEfHEGVowkiTCqnh5tk/preview')">Read Story</a>
         </div>
       </div>
-      
-       <!--STORY 22 --> 
-      
+
+       <!--STORY 22 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/L3F2t2z.jpeg" alt="The Secret of Us">
@@ -1739,9 +1739,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1bN4QyVolEtoWdXI9DHV4RbDK1_pHlbft/preview')">Read Story</a>
         </div>
       </div>
-      
-      <!--STORY 23 --> 
-      
+
+      <!--STORY 23 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/dLH99DU.jpeg" alt="Chain">
@@ -1753,9 +1753,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1j4fcicrz3pnWtj0h1bQNlw5luszh8wmi/preview')">Read Story</a>
         </div>
       </div>
-        
-       <!--STORY 24 --> 
-      
+
+       <!--STORY 24 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/GwVOj5P.jpeg" alt="Midnight Flight">
@@ -1767,11 +1767,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1nlIdGTAoiYAevH85rs6elM6K4sePBinp/preview')">Read Story</a>
         </div>
       </div>
-      
-    
-      
-       <!--STORY 25  --> 
-      
+
+
+
+       <!--STORY 25  -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/LJmtKY7.jpeg" alt="Crush">
@@ -1783,12 +1783,12 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1UA8Wxou9Gj5IoX20295iKW3IoflN26jO/preview')">Read Story</a>
         </div>
       </div>
-      
-     
-      
-      
-       <!--STORY 26 --> 
-      
+
+
+
+
+       <!--STORY 26 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/X0IECko.jpeg" alt="">
@@ -1800,11 +1800,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1zqpbypkfQ2360k2FZn4wGVFoln1J9MiM/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-       <!--STORY 27 --> 
-      
+
+
+
+       <!--STORY 27 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/5dcjm6d.jpeg" alt="">
@@ -1815,11 +1815,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-       <!--STORY 28 --> 
-      
+
+
+
+       <!--STORY 28 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/xbot6mz.jpeg" alt="">
@@ -1831,11 +1831,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1fMZ7nnINpLkH6zBEW7v94ti5L9WaoomM/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-       <!--STORY 29 --> 
-      
+
+
+
+       <!--STORY 29 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/4XNm4k4.jpeg" alt="">
@@ -1847,11 +1847,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1rkTUvG5NQDupp2-CvzrcUuzWCK_T4LWV/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-       <!--STORY 30 --> 
-      
+
+
+
+       <!--STORY 30 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/btL8V4i.jpeg" alt="">
@@ -1863,11 +1863,11 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1EyGFFRqQni2i1D6O4Y-utpYb5mu6g0l0/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-       <!--STORY 31 --> 
-      
+
+
+
+       <!--STORY 31 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/8WexvzD.png" alt="">
@@ -1878,15 +1878,15 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-        
-      
-       <!--STORY 32 --> 
-      
+
+
+
+
+       <!--STORY 32 -->
+
       <div class="story-card">
         <div class="story-image">
-          <img src="https://i.imgur.com/sPAiUlN.jpeg" alt=""> 
+          <img src="https://i.imgur.com/sPAiUlN.jpeg" alt="">
         </div>
         <div class="story-content">
           <h3>Uncertainty</h3>
@@ -1894,11 +1894,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
+
+
+
        <!--STORY 33 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/u1dzb7V.jpeg" alt="">
@@ -1910,11 +1910,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1imOKnzBGtFsqRhMVT-pCIy3oCpIptJ7k/preview')">Read Story</a>
         </div>
       </div>
-      
-       
-      
-       <!--STORY 34  --> 
-      
+
+
+
+       <!--STORY 34  -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/orDXecv.jpeg" alt="">
@@ -1926,11 +1926,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1C16-bXXt2MN9LKv5yZVB18dN7rmekLNh/preview')">Read Story</a>
         </div>
       </div>
-      
-     
-      
+
+
+
        <!--STORY 35 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/vIsyMmO.jpeg" alt="" loading="lazy">
@@ -1942,11 +1942,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1XFgoeKK_wktbFsZtvVBvYPW4YTC2Yrj8/preview')">Read Story</a>
         </div>
       </div>
-      
-        
-        
-     <!--STORY 36 -->  
-      
+
+
+
+     <!--STORY 36 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/uwj7LP8.jpeg" alt="">
@@ -1957,11 +1957,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-        
+
+
+
      <!--STORY 37 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/bxZJdaz.jpeg" alt="Apple">
@@ -1973,12 +1973,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/12Ys9OwNfzjmjA3OHWYNOyXMCiFdSKiyt/preview')">Read Story</a>
         </div>
       </div>
-      
-        
-        
-        
+
+
+
+
        <!--STORY 38  -->
-      
+
       <div class="story-card mature-content-border">
         <div class="story-image">
           <img src="https://i.imgur.com/PYB0ROe.jpeg" alt="Dangerous Queen">
@@ -1991,11 +1991,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Tu7l1H5xMq1z73WAswQuPb1A2YPpHQMT/preview')">Read Story</a>
         </div>
       </div>
-      
-         
-        
-     <!--STORY 39  --> 
-      
+
+
+
+     <!--STORY 39  -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/1CUgIgW.jpeg" alt="" loading="lazy">
@@ -2007,12 +2007,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Z_4kTIg-Nhd1O66Xvf4UiELJK9skenmZ/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-        
-        
-    <!--STORY 40  --> 
-      
+
+
+
+
+    <!--STORY 40  -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/tnDdP09.jpeg" alt="">
@@ -2024,11 +2024,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/190u7pZCM7y5aed0Q-47dy06J8ofM8OMLHA/preview')">Read Story</a>
         </div>
       </div>
-      
-      
 
-       <!--STORY 41  --> 
-      
+
+
+       <!--STORY 41  -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/sGybpyX.jpeg" alt="">
@@ -2040,12 +2040,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1lzpZd45mNdi6QnaXjJN21gKGKAYMOAL5/preview')">Read Story</a>
         </div>
       </div>
-      
-      
 
 
-       <!--STORY 42 -->  
-      
+
+
+       <!--STORY 42 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/l82w9FB.jpeg" alt="">
@@ -2057,11 +2057,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1PZqVujFZoxX123PXOuix-bA4GSDgT6m3/preview')">Read Story</a>
         </div>
       </div>
-      
-      
 
-      <!--STORY 43 -->  
-      
+
+
+      <!--STORY 43 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/l53WdQX.jpeg" alt="">
@@ -2072,13 +2072,13 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
 
-      
 
-      <!--STORY 44 -->  
-      
+
+
+
+      <!--STORY 44 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/OlB8CF8.jpeg" alt="">
@@ -2090,12 +2090,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1OyP5Y2JqIyzG_24ardYE3gBqiB0Ufztz/preview')">Read Story</a>
         </div>
       </div>
-      
-      
 
 
-      <!--STORY 45  -->  
-      
+
+
+      <!--STORY 45  -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/suzg78a.jpeg" alt="">
@@ -2107,12 +2107,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1QQIySMxJJ5iDUXGOnspsK_niCk3vi4GH/preview')">Read Story</a>
         </div>
       </div>
-      
-     
 
 
-      <!--STORY 46 -->  
-      
+
+
+      <!--STORY 46 -->
+
       <div class="story-card mature-content-border">
         <div class="story-image">
           <img src="https://i.imgur.com/W8SzoNH.jpeg" alt="">
@@ -2125,12 +2125,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1LmENgRWghkvRdDgf7XuYnvfMcrxF1Y5E/preview')">Read Story</a>
         </div>
       </div>
-      
-      
 
 
-      <!--STORY 47 -->  
-      
+
+
+      <!--STORY 47 -->
+
       <div class="story-card mature-content-border">
         <div class="story-image">
           <img src="https://i.imgur.com/LeL6MFF.png" alt="No.5">
@@ -2143,12 +2143,12 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1NSxIudS0qLDjSy__h3DxC3r68tRO9LpN/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
 
 
       <!--STORY 48 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/aMD1Vrn.png" alt="">
@@ -2160,11 +2160,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Z1c2ZEICf-_TjqLmL4Y-AEbva89mYEPQ/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
 
       <!--STORY 49 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/tsHnjLX.jpeg" alt="">
@@ -2176,11 +2176,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1vAo4sucMOIwY-8QS3G5tKpbYLiMI-lec/preview')">Read Story</a>
         </div>
       </div>
-      
-      
 
-      <!--STORY 50 --> 
-      
+
+
+      <!--STORY 50 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/MKUx8pq.jpeg" alt="">
@@ -2191,11 +2191,11 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
-      
-        <!--STORY 51 --> 
-      
+
+
+
+        <!--STORY 51 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Ow9VwXH.jpeg" alt="">
@@ -2207,11 +2207,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1-ekmryD7r8NNdmj6BEPncA0jemGXDgNJ/preview')">Read Story</a>
         </div>
       </div>
-      
-       
-      
+
+
+
         <!--STORY 52 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Y34oUKQ.jpeg" alt="">
@@ -2222,12 +2222,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-        
-      
-      
-        <!--STORY 53 --> 
-      
+
+
+
+
+        <!--STORY 53 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/x1fEIRo.jpeg" alt="">
@@ -2238,12 +2238,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
-      
 
-        <!--STORY 54 --> 
-      
+
+
+
+        <!--STORY 54 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/rr5mjKE.jpeg" alt="">
@@ -2255,12 +2255,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/19xy6a8bD-h-i-PmgmqOtg_i1FlJ85EIF/preview')">Read Story</a>
         </div>
       </div>
-      
-       
-      
-      
+
+
+
+
         <!--STORY 55 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/wiaDPdt.jpeg" alt="">
@@ -2271,12 +2271,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-        
-        
-      
-        <!--STORY 56 --> 
-      
+
+
+
+
+        <!--STORY 56 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/2O5CXAC.jpeg" alt="">
@@ -2288,11 +2288,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1MA_Gc-uuDiRW0MLxAKNXA694FbWS7CyW/preview')">Read Story</a>
         </div>
       </div>
-      
-       
-      
-        <!--STORY 57 --> 
-      
+
+
+
+        <!--STORY 57 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/MFUdc1Z.jpeg" alt="">
@@ -2303,11 +2303,11 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
-      
-        <!--STORY 58 --> 
-      
+
+
+
+        <!--STORY 58 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/qPfiyS8.jpeg" alt="">
@@ -2318,12 +2318,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
-      
-      
+
+
+
+
         <!--STORY 59 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/nCHBvhC.jpeg" alt="">
@@ -2334,12 +2334,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-        <!--STORY 60 --> 
-      
+
+
+
+
+        <!--STORY 60 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/62IOf79.jpeg" alt="">
@@ -2350,12 +2350,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
-      
-      
-        <!--STORY 61 -->  
-      
+
+
+
+
+        <!--STORY 61 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Kl10mNy.png" alt="">
@@ -2367,12 +2367,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1tbbITEP2P6B3eN3fbArYiEhGvPL8pjP3/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!--STORY 62 --> 
-      
+
+
+
+
+      <!--STORY 62 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/triz4fU.png" alt="">
@@ -2384,11 +2384,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Ql-dmzrwKlG-4vhslWXsNhbWnWJk73VE/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      <!--STORY 63 --> 
-      
+
+
+
+      <!--STORY 63 -->
+
         <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/6Bik0pj.jpeg" alt="">
@@ -2399,11 +2399,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1ewWoHzk_nitvXNTPR3DRWMiEqHkH6o_n/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
+
+
+
       <!--STORY 64 -->
-      
+
         <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/f9Kyaxh.jpeg" alt="">
@@ -2414,11 +2414,11 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
-      
+
+
+
       <!--STORY 65-->
-      
+
         <div class="story-card mature-content-border">
         <div class="story-image">
           <img src="https://i.imgur.com/d1U1w9n.jpeg" alt="">
@@ -2431,12 +2431,12 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1KMVpf-QpzHbEwMFWrV57qfEgQ4EHkFtU/preview')">Read Story</a>
         </div>
       </div>
-      
-       
-      
-      
+
+
+
+
       <!--STORY 66 -->
-    
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Z9rFryQ.jpeg" alt="">
@@ -2447,12 +2447,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
-      
-      
+
+
+
+
       <!--STORY 67 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/JrhNxPa.jpeg" alt="">
@@ -2463,12 +2463,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY 68 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/13eMiqm.jpeg" alt="">
@@ -2480,12 +2480,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1alY5j_M-ohRqF92nx35dwqyqxVT_PNp6/preview')">Read Story</a>
         </div>
       </div>
-      
-       
-      
-      
-      <!--STORY 69 --> 
-      
+
+
+
+
+      <!--STORY 69 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/jAPWC2s.jpeg" alt="">
@@ -2497,12 +2497,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1d2v5pxEGbECSF8OMJBDD5fu5zvHcP_In/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!--STORY 70 --> 
-      
+
+
+
+
+      <!--STORY 70 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/PEC9I0s.jpeg" alt="">
@@ -2513,12 +2513,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!--STORY 71 --> 
-      
+
+
+
+
+      <!--STORY 71 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/A4wwj2G.jpeg" alt="">
@@ -2529,10 +2529,10 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
         <!--STORY 72 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/hZs1NO4.png" alt="911 Love Code">
@@ -2540,15 +2540,15 @@
         <div class="story-content">
           <h3>911 Love Code</h3>
           <p>She receives a stranger's bag of lingerie, but when her secret 911 code opens</p>
-          <p><span class="flash-text complete-story">Completed</span></p> 
+          <p><span class="flash-text complete-story">Completed</span></p>
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1x0nLTQgv1BaBjkYEVgqsuy1yLHfhudHz/preview')">Read Story</a>
         </div>
       </div>
 
-      
 
-        <!--STORY 73 --> 
-      
+
+        <!--STORY 73 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ityk0E0.png" alt="">
@@ -2560,11 +2560,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Oy5BqvpmeKVa73H_qY3QeNlh9DcuG8B2/preview')">Read Story</a>
         </div>
       </div>
-      
 
-      
-        <!--STORY 74 --> 
-      
+
+
+        <!--STORY 74 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/w2vv6bL.png" alt="">
@@ -2575,11 +2575,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-        <!--STORY 75 --> 
-      
+
+
+
+        <!--STORY 75 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/VKVT2vS.png" alt="">
@@ -2590,12 +2590,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-       
 
 
-    <!--STORY 76 --> 
-      
+
+
+    <!--STORY 76 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/OKenpQN.png" alt="">
@@ -2606,11 +2606,11 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
 
-      <!--STORY 77 --> 
-      
+
+
+      <!--STORY 77 -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/gT1OlVf.png" alt="">
@@ -2622,10 +2622,10 @@
         </div>
       </div>
 
-    
+
 
        <!--STORY 78 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/DH6rsrZ.png" alt="">
@@ -2637,10 +2637,10 @@
         </div>
       </div>
 
-    
+
 
        <!--STORY 79 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/irIqoYy.png" alt="">
@@ -2653,11 +2653,11 @@
         </div>
       </div>
 
-    
+
 
 
        <!--STORY 80 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Z4pvN4o.png" alt="">
@@ -2669,11 +2669,11 @@
         </div>
       </div>
 
-    
+
 
 
        <!--STORY 81 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/bAtogmg.jpeg" alt="">
@@ -2685,11 +2685,11 @@
         </div>
       </div>
 
-    
+
 
 
        <!--STORY 82 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/uT3Wr5Q.png" alt="">
@@ -2702,11 +2702,11 @@
         </div>
       </div>
 
-    
+
 
 
        <!--STORY 83 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/H8pCgYX.png" alt="">
@@ -2719,11 +2719,11 @@
         </div>
       </div>
 
-   
+
 
 
        <!--STORY 84 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/zk1PmUZ.png" alt="">
@@ -2736,11 +2736,11 @@
         </div>
       </div>
 
-    
+
 
 
        <!--STORY 85 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/J5zFmyV.png" alt="">
@@ -2752,11 +2752,11 @@
         </div>
       </div>
 
-    
+
 
 
        <!--STORY 86 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/LLpLORl.png" alt="">
@@ -2769,12 +2769,12 @@
         </div>
       </div>
 
-    
-      
-      
-      
+
+
+
+
       <!--STORY 87 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/dfBaP87.png" alt="">
@@ -2786,11 +2786,11 @@
         </div>
       </div>
 
-    
-      
-      
+
+
+
       <!--STORY 88 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/dkYJhM9.png" alt="">
@@ -2803,12 +2803,12 @@
         </div>
       </div>
 
-    
-      
-      
-      
+
+
+
+
       <!--STORY 89 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/oKtkEPJ.png" alt="">
@@ -2820,12 +2820,12 @@
         </div>
       </div>
 
-    
-      
-      
-      
+
+
+
+
       <!--STORY 90 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/gQd1Hgn.png" alt="">
@@ -2837,10 +2837,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/16nSsulBOzkRIRZ9mVDPOSqq8zsrk1odH/preview')">Read Story</a>
         </div>
       </div>
-      
+
 
     <!--STORY 91 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ZmU4YVp.png" alt="">
@@ -2852,10 +2852,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1xGzU4QjWaf2SdadqTmouiMgc89jua9aG/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 92 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/aG2oME4.png" alt="">
@@ -2867,10 +2867,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1UZeQK4yG-k3YkX3eai-6_RNe_ORtyLIz/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 93 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/aFz7tbN.png" alt="">
@@ -2881,10 +2881,10 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY 94 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/N78sGFb.png" alt="">
@@ -2897,11 +2897,11 @@
         </div>
       </div>
 
-      
-      
-      
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/a17zrRz.png" alt="">
@@ -2913,12 +2913,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1oIIF0eBzy4Tvtyryg-pttpLWu9vPMAsX/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/QydDTyp.png" alt="">
@@ -2930,12 +2930,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ICUoHCm.png" alt="">
@@ -2947,12 +2947,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1OrwECA10kknUMkQxFvOf456V1s95LpDl/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/QJOMkR7.png" alt="">
@@ -2964,12 +2964,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1vJXj15vbfbtA5UYXQT360NWIq8vRqere/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/jJ5WG9Z.png" alt="">
@@ -2981,12 +2981,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/swHSVlT.png" alt="">
@@ -2994,16 +2994,16 @@
         <div class="story-content">
           <h3>Gap Eternity</h3>
           <p>They were never meant to meet—yet something keeps echoing between the silence and forever.</p>
-          <p><span class="flash-text complete-story">Completed</span></p> 
+          <p><span class="flash-text complete-story">Completed</span></p>
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/11KVeKdW99lTs-YstJgr7FbeXXM2eva3e/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/LmI6Zrl.png" alt="">
@@ -3015,12 +3015,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/xudhTy5.png" alt="">
@@ -3032,13 +3032,13 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1IKuqo2Xeg8kCaQa1zk9dApgMmGbJbzVz/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/K4aJ8c4.png" alt="">
@@ -3046,17 +3046,17 @@
         <div class="story-content">
           <h3>Dream of Wedding Day</h3>
           <p>She dreamed of vows and forever, but waking up means facing the cost of love.</p>
- <!--      <p><span class="flash-text complete-story">Completed</span></p> -->          
+ <!--      <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/DF5q7IM.png" alt="">
@@ -3064,17 +3064,17 @@
         <div class="story-content">
           <h3>Angel Theory</h3>
           <p>She thought angels were myths, until one fell and shattered her world with truth.</p>
- <!--      <p><span class="flash-text complete-story">Completed</span></p> -->          
+ <!--      <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/X3TmGKz.png" alt="">
@@ -3082,17 +3082,17 @@
         <div class="story-content">
           <h3>Toss-Up</h3>
           <p>Life keeps flipping the coin, but love is the gamble she can’t stop taking.</p>
- <!--      <p><span class="flash-text complete-story">Completed</span></p> -->          
+ <!--      <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/lGHgJmC.png" alt="">
@@ -3100,16 +3100,16 @@
         <div class="story-content">
           <h3>Star Monster</h3>
           <p>She came from the stars to destroy, but her heart may be the only thing she can’t conquer.</p>
- <!--      <p><span class="flash-text complete-story">Completed</span></p> -->          
+ <!--      <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ZUDG8PG.png" alt="">
@@ -3117,16 +3117,16 @@
         <div class="story-content">
           <h3>When The Villainess Finds Love</h3>
           <p>She was written to be hated, until love rewrote her fate.</p>
- <!--      <p><span class="flash-text complete-story">Completed</span></p> -->            
+ <!--      <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/7uhfXnv.png" alt="">
@@ -3138,12 +3138,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/VehWJUl.png" alt="">
@@ -3155,12 +3155,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/rVdeqQa.png" alt="">
@@ -3172,12 +3172,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/kfdhEpm.png" alt="">
@@ -3189,12 +3189,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/LTDNhFp.png" alt="">
@@ -3206,10 +3206,10 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/R6jbWrR.png" alt="">
@@ -3221,12 +3221,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card mature-content-border">
         <div class="story-image">
           <img src="https://i.imgur.com/vsplhVx.png" alt="">
@@ -3235,16 +3235,16 @@
           <h3>Special Dangerous Queen</h3>
           <p>She wore the crown to command fear—until loving the one she was meant to destroy became the deadliest rebellion of all.</p>
           <p><span class="flash-text mature-content">Mature Content</span></p>
-          <p><span class="flash-text complete-story">Completed</span></p> 
+          <p><span class="flash-text complete-story">Completed</span></p>
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1VR_Rer5hFnJ6jgosYmLvUIqfuEzTrOmm/preview')">Read Story</a>
         </div>
       </div>
-      
-            
-      
-      
+
+
+
+
         <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/9oMjRyl.png" alt="">
@@ -3256,12 +3256,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
             <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/OY3vrmT.png" alt="">
@@ -3269,16 +3269,16 @@
         <div class="story-content">
           <h3>Be My Universe</h3>
           <p>She thought love was a wish, until someone rewrote her sky and became her whole orbit.</p>
-    <!---  <p><span class="flash-text complete-story">Completed</span></p> -->  
+    <!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
     <!--STORY -->
-      
+
       <div class="story-card mature-content-border">
         <div class="story-image">
           <img src="https://i.imgur.com/uMeLeE6.png" alt="">
@@ -3287,15 +3287,15 @@
           <h3>Best of Best</h3>
           <p>She won the crown everyone wanted, only to discover the prize was the life she no longer recognized.</p>
           <p><span class="flash-text mature-content">Mature Content</span></p>
-   <!---  <p><span class="flash-text complete-story">Completed</span></p> -->  
+   <!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-     
-      
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/qQiZUE1.png" alt="">
@@ -3303,16 +3303,16 @@
         <div class="story-content">
           <h3>Charis's Secret</h3>
           <p>Her secret could save them all, if she can risk the one person she can't afford to lose.</p>
-   <!---  <p><span class="flash-text complete-story">Completed</span></p> -->  
+   <!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
      <!--STORY  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/hPSfmrO.png" alt="">
@@ -3320,15 +3320,15 @@
         <div class="story-content">
           <h3>Be My Baby! Special</h3>
           <p>She gave her heart and her home, this Christmas, she proves love is the only gift that keeps choosing them both.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> -->  
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-     
-      
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/SZ1YEie.png" alt="">
@@ -3336,15 +3336,15 @@
         <div class="story-content">
           <h3>Concealed Love</h3>
           <p>She hid her heart behind a smile, until the secret she kept became the only truth worth risking everything for.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> -->  
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/FaHkQ0V.png" alt="">
@@ -3352,16 +3352,16 @@
         <div class="story-content">
           <h3>Bloody Mary</h3>
           <p>She sees ghosts no one else believes in, until one bloodstained spirit offers a bargain that will cost her everything she thought was real.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/slNiXz5.png" alt="">
@@ -3369,16 +3369,16 @@
         <div class="story-content">
           <h3>Evil Enemy Defeats Love</h3>
           <p>She trained to destroy her, until the enemy she swore to hate became the only heart she couldn’t bear to break.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ufmJswp.jpeg" alt="">
@@ -3386,16 +3386,16 @@
         <div class="story-content">
           <h3>Rescue Her Heart</h3>
           <p>She vowed to save her life, only to discover the one thing she couldn’t fix was the way her own heart had already been stolen.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/kYu5UQ6.png" alt="">
@@ -3403,16 +3403,16 @@
         <div class="story-content">
           <h3>You, Who Mean Love</h3>
           <p>She learned to hide the ache in her smile, until the person she’d been protecting her secret from became the only one who could make it stop.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
      <!--STORY  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/pYJtz0F.png" alt="">
@@ -3420,15 +3420,15 @@
         <div class="story-content">
           <h3>Pemika's Kept Girl</h3>
           <p>She was meant to be hidden, being found became the bravest thing either of them ever did.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-     
-      
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/7yMLVAp.png" alt="">
@@ -3436,14 +3436,14 @@
         <div class="story-content">
           <h3>Roommates</h3>
           <p>They shared a roof and a routine, then a single late-night confession rearranged everything they thought they knew about home.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/5CK52xY.png" alt="">
@@ -3451,14 +3451,14 @@
         <div class="story-content">
           <h3>Codename: Bodyguard</h3>
           <p>Her protector had orders to keep her safe, keeping her heart out of the mission proved impossible.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
        <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/AQGeHm6.png" alt="">
@@ -3466,17 +3466,17 @@
         <div class="story-content">
           <h3>Chain Baby (Special)</h3>
           <p>She thought the chain would bind them, until the secret it held unlocked a love neither of them expected.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/n4gjdAJ.png" alt="">
@@ -3484,17 +3484,17 @@
         <div class="story-content">
           <h3>Mafia Heiress's Gamble AV</h3>
           <p>She bet the family fortune on one reckless choice, and lost everything except the woman who taught her how to risk love.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
              <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/kLgQDGB.png" alt="">
@@ -3502,17 +3502,17 @@
         <div class="story-content">
           <h3>Mistress G</h3>
           <p>She kept secrets like armor, until one woman learned how to disarm her without breaking her.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-     
-      
-      
+
+
+
+
+
              <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/TeKuyqE.png" alt="">
@@ -3520,17 +3520,17 @@
         <div class="story-content">
           <h3>Fated Pair</h3>
           <p>Destiny drew the line between them, then love stepped in and erased it.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-     
-      
-      
+
+
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/0bXuSt2.png" alt="">
@@ -3538,17 +3538,17 @@
         <div class="story-content">
           <h3>Alpha's Bond (Omegaverse)</h3>
           <p>She was bred to lead, she was born to challenge her, together they rewrite the rules that once bound them.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
-             <!--STORY --> 
-      
+
+
+
+
+
+             <!--STORY -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ASlBfo9.png" alt="">
@@ -3556,17 +3556,17 @@
         <div class="story-content">
           <h3>Queen of Queen (Omegaverse)</h3>
           <p>She wore the crown to command, but loving the one she was meant to destroy became the deadliest rebellion of all.</p>
-<!---  <p><span class="flash-text complete-story">Completed</span></p> --> 
+<!---  <p><span class="flash-text complete-story">Completed</span></p> -->
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/0oH5Alh.png" alt="">
@@ -3578,13 +3578,13 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1hc-NlBS1MsfoeOJ-ngCMVcFrEWhuperB/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/oh4qWBa.png" alt="">
@@ -3592,17 +3592,17 @@
         <div class="story-content">
           <h3>Harmony Secret (Special)</h3>
           <p>They negotiated terms for business, then learned how to negotiate a life together.</p>
-        <p><span class="flash-text complete-story">Completed</span></p>  
+        <p><span class="flash-text complete-story">Completed</span></p>
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1n-y0UJOQXMjkgLOl3dz10CHmNga0eXF0/preivew')">Read Story</a>
         </div>
       </div>
-      
-      
-  
-      
-      
+
+
+
+
+
      <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/2wOT3JJ.png" alt="">
@@ -3614,13 +3614,13 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/KVI8yzf.png" alt="">
@@ -3632,13 +3632,13 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!--STORY -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/kiOvdvy.png" alt="">
@@ -3650,13 +3650,101 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
-             <!--STORY 
-      
+
+
+
+
+
+      <!--STORY -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/MAj5NQT.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Secret Player</h3>
+          <p>She kept her heart off the field, until the game turned into something she couldn’t walk away from.</p>
+
+          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
+        </div>
+      </div>
+
+
+
+
+
+             <!--STORY-->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/iXz8q5s.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>My Boss</h3>
+          <p>She thought the office was just work, until her boss became the one person she couldn’t stop thinking about.</p>
+
+          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
+        </div>
+      </div>
+
+
+
+
+      <!--STORY -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/BiZgYyE.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Yes! I Don't Love You</h3>
+          <p>She swore she didn’t love her, until every denial sounded more like a confession.</p>
+
+          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
+        </div>
+      </div>
+
+
+
+
+
+             <!--STORY -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/ceRCBfi.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Kiss Me If You Dare</h3>
+          <p>She played love like a game, until the quiet girl who refused to play became the only risk worth taking.</p>
+
+          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
+        </div>
+      </div>
+
+
+
+
+             <!--STORY -->
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="https://i.imgur.com/A9f0Gqj.png" alt="">
+        </div>
+        <div class="story-content">
+          <h3>Sister</h3>
+          <p>She thought family was her only bond, until love blurred the line she never expected to cross.</p>
+
+          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
+        </div>
+      </div>
+
+
+
+
+
+             <!--STORY
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -3668,13 +3756,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       -->
-      
-      
-             <!--STORY 
-      
+
+             <!--STORY
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -3686,12 +3773,13 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       -->
-      
-             <!--STORY 
-      
+
+
+             <!--STORY
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -3703,13 +3791,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       -->
-      
-      
-             <!--STORY 
-      
+
+             <!--STORY
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -3721,113 +3808,26 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      -->
-      
-             <!--STORY 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
 
-          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
-        </div>
-      </div>
-      
-      
-      -->
-      
-      
-             <!--STORY 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
 
-          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
-        </div>
-      </div>
-      
-      
       -->
-      
-             <!--STORY 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
 
-          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
-        </div>
-      </div>
-      
-      
-      -->
-      
-      
-             <!--STORY 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
 
-          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
-        </div>
-      </div>
-      
-      
-      -->
-      
-             <!--STORY 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
-
-          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
-        </div>
-      </div>
-      
-      
-      -->
-      
-      
     </div>
   </section>
-  
-  
 
-   <!-- ORIGINAL 
-  
+
+
+   <!-- ORIGINAL
+
   <section id="original-section">
     <h2>Original</h2>
     <div class="story-grid">
 
-  
-        
+
+
         <!--ORIGINAL 1
-        
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/PFqnE02.png" alt="Salt In Her Veins">
@@ -3839,9 +3839,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1RsCAcgXiS0XYBMBsw0uqfwMnEh_L8yTR/preview')">Read Story</a>
         </div>
       </div>
-        
+
         <!--ORIGINAL 2
-        
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/lzqztmy.png" alt="Yesterday's Happiness">
@@ -3855,7 +3855,7 @@
         </div>
       </div>
 
-      <!-- ORIGINAL 3 
+      <!-- ORIGINAL 3
 
         <div class="story-card">
         <div class="story-image">
@@ -3868,10 +3868,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1bdAEzOANPMZ0uMdD0LhpyqMGjpfujH_F/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      <!-- ORIGINAL 4 
-      
+
+
+      <!-- ORIGINAL 4
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Y0faMa6.png" alt="">
@@ -3883,8 +3883,8 @@
           <a href="#" class="read-btn" onclick="openModal('https://docs.google.com/document/d/15CmZLYgA0PKjEfFfkoyjB2ugIhFeHpshn-QNJdQYTZo/edit?usp=sharing')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
       <!-- ORIGINAL 5
 
       <div class="story-card">
@@ -3899,9 +3899,9 @@
         </div>
       </div>
 
-      
-      
-      
+
+
+
       <!-- ORIGINAL 6
 
       <div class="story-card">
@@ -3916,25 +3916,25 @@
         </div>
       </div>
 
-      
-      
-      
-      
+
+
+
+
     </div>
   </section>
-  
+
   -->
-  
-  
-  
+
+
+
    <!-- BOYS LOVE -->
-  
+
   <section id="bl-section">
     <h2>BL Stories</h2>
     <div class="story-grid">
-        
+
         <!--BL 1-->
-        
+
         <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/2VFvC3D.png" alt="">
@@ -3946,9 +3946,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1p4QScDCzIeRbsz2iX2pYP48g4mcYSGeD/preview')">Read Story</a>
         </div>
         </div>
-        
+
         <!--BL 2-->
-        
+
         <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/uSVMK5N.png" alt="">
@@ -3974,10 +3974,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/16_K3J6lbxCzAuyLByJbTcoXjUahjBqip/preview')">Read Story</a>
         </div>
         </div>
-      
-      
+
+
       <!-- BL 4 -->
-      
+
         <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/5y3LJp7.png" alt="">
@@ -3989,8 +3989,8 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1L_fT4H3i5jqcLCGWrU_YoxjlSm4lvNAB/preview')">Read Story</a>
         </div>
         </div>
-      
-      
+
+
       <!-- BL 5 -->
 
       <div class="story-card">
@@ -4005,9 +4005,9 @@
         </div>
       </div>
 
-      
-      
-      
+
+
+
       <!-- BL 6 -->
 
       <div class="story-card">
@@ -4022,9 +4022,9 @@
         </div>
       </div>
 
-      
-      
-      
+
+
+
       <!-- BL 7 -->
 
       <div class="story-card">
@@ -4039,8 +4039,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 8 -->
 
       <div class="story-card">
@@ -4055,8 +4055,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 9 -->
 
       <div class="story-card">
@@ -4071,8 +4071,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 10 -->
 
       <div class="story-card">
@@ -4087,8 +4087,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 11 -->
 
       <div class="story-card">
@@ -4103,8 +4103,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 12 -->
 
       <div class="story-card">
@@ -4119,8 +4119,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 13 -->
 
       <div class="story-card">
@@ -4134,8 +4134,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 14 -->
 
       <div class="story-card">
@@ -4150,9 +4150,9 @@
         </div>
       </div>
 
-      
-      
-      
+
+
+
       <!-- BL 15 -->
 
       <div class="story-card">
@@ -4167,9 +4167,9 @@
         </div>
       </div>
 
-      
-      
-      
+
+
+
       <!-- BL 16 -->
 
       <div class="story-card">
@@ -4184,9 +4184,9 @@
         </div>
       </div>
 
-      
-      
-      
+
+
+
       <!-- BL 17 -->
 
       <div class="story-card">
@@ -4201,8 +4201,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 18 -->
 
       <div class="story-card">
@@ -4217,8 +4217,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 19 -->
 
       <div class="story-card">
@@ -4233,8 +4233,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 20 -->
 
       <div class="story-card">
@@ -4249,8 +4249,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 21 -->
 
       <div class="story-card">
@@ -4265,8 +4265,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 22 -->
 
       <div class="story-card">
@@ -4280,8 +4280,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 23 -->
 
       <div class="story-card">
@@ -4295,9 +4295,9 @@
         </div>
       </div>
 
-      
-      
-      <!-- BL 24 --> 
+
+
+      <!-- BL 24 -->
 
       <div class="story-card">
         <div class="story-image">
@@ -4310,8 +4310,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 25 -->
 
       <div class="story-card">
@@ -4326,8 +4326,8 @@
         </div>
       </div>
 
-      
-      
+
+
       <!-- BL 26 -->
 
       <div class="story-card">
@@ -4343,7 +4343,7 @@
       </div>
 
       <!-- BL 27 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/EUxoE2D.png" alt="">
@@ -4355,9 +4355,9 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1Le_avEcdFamhiRd-coV_MOAGhWMC3hSH/preview')">Read Story</a>
         </div>
       </div>
-      
+
        <!-- BL 28 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ofKdTXx.png" alt="">
@@ -4369,10 +4369,10 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/152r0YkY96w4M0hyIgiP5AXPIdlWvSP9o/preview')">Read Story</a>
         </div>
       </div>
-      
-      
+
+
        <!-- BL 29 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/IGcvzjE.png" alt="">
@@ -4383,10 +4383,10 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
        <!-- BL 30 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/9rXr8pL.png" alt="">
@@ -4397,10 +4397,10 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
        <!-- BL 31 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/omrm0Rx.png" alt="">
@@ -4412,11 +4412,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1RSDspoqL_5xiJK44c8g0OtcR2vIwO0kR/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
+
+
+
       <!-- BL 32 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/pckEpnK.png" alt="">
@@ -4428,12 +4428,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1tDHSPJO28vYgpwVwDz9bA7ih1pYkz78g/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 33 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/7v69Jyp.png" alt="">
@@ -4444,12 +4444,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 34 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/3JkEczk.png" alt="">
@@ -4460,11 +4460,11 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
+
+
+
       <!-- BL 35 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/jOIv5vP.png" alt="">
@@ -4476,11 +4476,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1riWdlrATIas7z9kPJdsAJeL9SNSpLSUF/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
+
+
+
     <!-- BL 36 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/jXFCy77.png" alt="">
@@ -4491,11 +4491,11 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
+
+
+
     <!-- BL 37 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/tqkaFoC.png" alt="">
@@ -4506,12 +4506,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 38 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/vdzu2N7.png" alt="">
@@ -4523,11 +4523,11 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1rY7dNQHi7voPVb1QrDaSmkaMxI_XaEoD/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
+
+
+
       <!-- BL 39 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ikapjVo.png" alt="">
@@ -4539,12 +4539,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1NtpDjxEnQrWyW3CLwlgTJricr7_lr1Nx/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 40 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/IqklMf2.png" alt="">
@@ -4555,12 +4555,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 41 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/wBmfExK.png" alt="">
@@ -4572,12 +4572,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1YkVDkzS-_puomiYTr4RLOKiB4kQ1VGsX/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 42 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/CQ5pSqu.png" alt="">
@@ -4588,12 +4588,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 43 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/h4hrGbV.png" alt="">
@@ -4604,12 +4604,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL 44 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/7rs52LI.png" alt="">
@@ -4620,11 +4620,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
+
+
+
       <!-- BL 45 -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/DeFNMaX.png" alt="">
@@ -4635,12 +4635,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/HowHAMV.png" alt="">
@@ -4651,12 +4651,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/S0dxzGN.png" alt="">
@@ -4667,12 +4667,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/q5PyEq8.png" alt="">
@@ -4683,12 +4683,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/riS9v2j.png" alt="">
@@ -4699,12 +4699,12 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ddqFNsj.png" alt="">
@@ -4715,12 +4715,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/1h4QsrE.png" alt="">
@@ -4731,12 +4731,12 @@
        <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1zQqQVcLei4Zb7N1UPjDu-U62sIiX6dUo/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/l4wRNha.png" alt="">
@@ -4747,13 +4747,13 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/LDWELMr.png" alt="">
@@ -4764,13 +4764,13 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/ee2cyE7.png" alt="">
@@ -4782,12 +4782,12 @@
         <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/12K9AqLVWUAQIb0KkQrZ0J9jBE8OLkXa9/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL -->  
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/HTchgvi.png" alt="">
@@ -4798,12 +4798,12 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/cGnw6Wl.png" alt="">
@@ -4814,13 +4814,13 @@
       <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/WLFMtZX.png" alt="">
@@ -4831,12 +4831,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/2tJrxPG.png" alt="">
@@ -4847,13 +4847,13 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/T2RauHP.png" alt="">
@@ -4865,12 +4865,12 @@
           <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/123GI_Lyuy4LghmOqybzNgyf8ecOTgRy3/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/JG2yrJ2.png" alt="">
@@ -4882,12 +4882,12 @@
         <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1UhYrTzIFxNd_bupr9afbJRiSFW8Pg8zJ/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/BJ6xRWY.png" alt="">
@@ -4898,12 +4898,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/0DDijfw.png" alt="">
@@ -4914,12 +4914,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/CtcP5lL.png" alt="">
@@ -4930,12 +4930,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/KHqjFfh.png" alt="">
@@ -4946,12 +4946,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/wA8ljOP.png" alt="">
@@ -4962,12 +4962,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/9lyiX2Z.png" alt="">
@@ -4978,12 +4978,12 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/CWej4ae.png" alt="">
@@ -4994,12 +4994,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/PASs97u.png" alt="">
@@ -5011,12 +5011,12 @@
         <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1f8KHbFYAgArhQZBTj-ZkuDKId8fxdRbq/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/4W0isGY.png" alt="">
@@ -5027,12 +5027,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/GGSk7pR.png" alt="">
@@ -5043,12 +5043,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/q4Ref7E.png" alt="">
@@ -5059,12 +5059,12 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/Z92cSBh.png" alt="">
@@ -5075,12 +5075,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/tHSXiVA.png" alt="">
@@ -5091,12 +5091,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL --> 
-      
+
+
+
+
+      <!-- BL -->
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/4FYgKIG.png" alt="">
@@ -5107,12 +5107,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/OH2jBto.png" alt="">
@@ -5124,12 +5124,12 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/106-LG-Ibh_4notPEwIKleBPBewWs9CWq/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/4o0DJmU.png" alt="">
@@ -5140,12 +5140,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/aM6xjwn.png" alt="">
@@ -5156,12 +5156,12 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/1bJgRBq.png" alt="">
@@ -5172,12 +5172,12 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- BL  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/uXAkJIC.png" alt="">
@@ -5189,12 +5189,12 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1zI0rFFZG5y5Uhd8E1TOUcSX6ESeiqISC/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
-      <!-- BL  
-      
+
+
+
+
+      <!-- BL
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5205,11 +5205,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      <!-- BL  
-      
+
+      <!-- BL
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5220,12 +5220,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- BL  
-      
+
+
+      <!-- BL
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5236,12 +5236,12 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- BL  
-      
+
+
+      <!-- BL
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5252,27 +5252,27 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      
+
+
+
 
     </div>
   </section>
 
-  
-  
+
+
    <!-- RANDOM  -->
-  
+
   <section id="random-section">
     <h2>Random Stories</h2>
     <div class="story-grid">
 
-  
-        
+
+
         <!--RANDOM -->
-        
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/d7kgxDl.png" alt="">
@@ -5284,10 +5284,10 @@
           <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/nY3L8oo.png" alt="">
@@ -5299,11 +5299,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/1wTpRyf.png" alt="">
@@ -5315,11 +5315,11 @@
         <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
- 
-      
+
+
 
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/kTBTeSu.png" alt="">
@@ -5331,11 +5331,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/0EKfR2Y.png" alt="">
@@ -5343,16 +5343,16 @@
         <div class="story-content">
           <h3>Abandoned Love</h3>
           <p>She left to protect her heart—but some love refuses to stay buried.</p>
-          <p><span class="flash-text complete-story">Completed</span></p>  
+          <p><span class="flash-text complete-story">Completed</span></p>
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1OQ9bmx_e4D5UsAmpV-sO_-TQIysHYjoY/preivew')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/FdgLajc.png" alt="">
@@ -5364,12 +5364,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/2IgIrBD.png" alt="">
@@ -5381,12 +5381,12 @@
          <a href="#" class="read-btn" onclick="openModal('https://drive.google.com/file/d/1ri0ujA03gxTTR4ZiT5GJEjuDnI_1CLxS/preview')">Read Story</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/SWMA6yg.png" alt="">
@@ -5398,12 +5398,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/pTLcRBK.png" alt="">
@@ -5415,13 +5415,13 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
+
+
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/4pYqkH3.jpeg" alt="">
@@ -5429,16 +5429,16 @@
         <div class="story-content">
           <h3>Promise Me: A Scottish Medieval Protector Romance (Game of Kings Book 1)</h3>
           <p>He swore to guard her body and her name, until a vow turned into the only law that could bind two rebellious hearts.</p>
-  <!-- <p><span class="flash-text complete-story">Completed</span></p> --> 
+  <!-- <p><span class="flash-text complete-story">Completed</span></p> -->
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
+
+
+
+
       <!-- RANDOM  -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/m7qDqgl.jpeg" alt="">
@@ -5450,12 +5450,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-     
-      
-      
+
+
+
+
       <!-- RANDOM -->
-      
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://i.imgur.com/uqxagNK.jpeg" alt="">
@@ -5467,13 +5467,13 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
-      
-      
-      
-      
-      <!-- RANDOM 
-      
+
+
+
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5485,12 +5485,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5502,12 +5502,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5519,11 +5519,11 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      <!-- RANDOM 
-      
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5535,12 +5535,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5552,12 +5552,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5569,12 +5569,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5586,12 +5586,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5603,12 +5603,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5620,12 +5620,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5637,12 +5637,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5654,12 +5654,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5671,12 +5671,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5688,12 +5688,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5705,12 +5705,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5722,12 +5722,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5739,12 +5739,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5756,12 +5756,12 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
-      
-      <!-- RANDOM 
-      
+
+
+      <!-- RANDOM
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5773,24 +5773,24 @@
          <a href="#" class="read-btn request-now" onclick="openModal('https://forms.gle/fYz1eFCLLG64vkGJ6')">Request</a>
         </div>
       </div>
-      
+
       -->
-      
+
     </div>
   </section>
-  
-  
-  
-     <!-- MOVIE 
-  
+
+
+
+     <!-- MOVIE
+
   <section id="movie-section">
     <h2>Movies</h2>
     <div class="story-grid">
 
-  
-        
-        <!--MOVIE 
-        
+
+
+        <!--MOVIE
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9P72U4rQ-8Zln0jhoz3tFAlaXuB6v9QxcVpx7m7emkg1OF2K5AdWengRK002j4EEFKyw6Ew&s=10" alt="">
@@ -5801,10 +5801,10 @@
           <a href="https://kalevexs.github.io/KALEVEXSMOVIE/" class="read-btn">Check Now</a>
         </div>
       </div>
-      
-      
-      <!-- MOVIE 
-      
+
+
+      <!-- MOVIE
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ4R-yvemi9m_F02oTuFZqtZr3-uIH2lhgmnRRSg3Fufg_vteXl6R6s1l1OHh5sYa7nQcv&s=10" alt="">
@@ -5815,11 +5815,11 @@
          <a href="https://kalevexs.github.io/KALEVEXSMOVIE/" class="read-btn">Check Now</a>
         </div>
       </div>
-      
-      
-      
-      <!-- MOVIE 
-      
+
+
+
+      <!-- MOVIE
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzE0JnWGOU8OREbgsk_M-ElvagGCi0FCeirgVKdlVD8FfhVV6DYaI52OEUrzbNpYt8MfD1&s=10" alt="">
@@ -5830,11 +5830,11 @@
          <a href="https://kalevexs.github.io/KALEVEXSMOVIE/" class="read-btn">Check Now</a>
         </div>
       </div>
- 
-      
 
-      <!-- MOVIE 
-      
+
+
+      <!-- MOVIE
+
       <div class="story-card">
         <div class="story-image">
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRisHvquJIEXIXHerJAsZrblKRzfo_B4QDs4E40D069fxrloq3FQyFE0NoETMMp4DVZTgDK&s=10" alt="">
@@ -5845,62 +5845,12 @@
          <a href="https://kalevexs.github.io/KALEVEXSMOVIE/" class="read-btn">Check Now</a>
         </div>
       </div>
-      
-      
 
-      
-      <!-- MOVIE 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
-          <p><span class="flash-text complete-story">Completed</span></p>
-         <a href="#" class="read-btn">Available Later</a>
-        </div>
-      </div>
-      
-      
-      
-      
-      <!-- MOVIE 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
-          <p><span class="flash-text complete-story">Completed</span></p>
-         <a href="#" class="read-btn">Available Later</a>
-        </div>
-      </div>
-      
-     
-      
-      
-      <!-- MOVIE 
-      
-      <div class="story-card">
-        <div class="story-image">
-          <img src="" alt="">
-        </div>
-        <div class="story-content">
-          <h3></h3>
-          <p></p>
-          <p><span class="flash-text complete-story">Completed</span></p>
-         <a href="#" class="read-btn">Available Later</a>
-        </div>
-      </div>
-      
-      
 
-      <!-- MOVIE 
-      
+
+
+      <!-- MOVIE
+
       <div class="story-card">
         <div class="story-image">
           <img src="" alt="">
@@ -5912,16 +5862,66 @@
          <a href="#" class="read-btn">Available Later</a>
         </div>
       </div>
-      
-      
-      
+
+
+
+
+      <!-- MOVIE
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+         <a href="#" class="read-btn">Available Later</a>
+        </div>
+      </div>
+
+
+
+
+      <!-- MOVIE
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+         <a href="#" class="read-btn">Available Later</a>
+        </div>
+      </div>
+
+
+
+      <!-- MOVIE
+
+      <div class="story-card">
+        <div class="story-image">
+          <img src="" alt="">
+        </div>
+        <div class="story-content">
+          <h3></h3>
+          <p></p>
+          <p><span class="flash-text complete-story">Completed</span></p>
+         <a href="#" class="read-btn">Available Later</a>
+        </div>
+      </div>
+
+
+
     </div>
   </section>
-  
+
      -->
 
   <!-- About -->
-  
+
   <section id="about-section">
     <h2>About Us</h2>
     <div class="about-section">
@@ -5931,10 +5931,10 @@
       </div>
     </div>
   </section>
-  
-  
+
+
    <!-- Disclaimer -->
-  
+
   <section id="disclaimer-section">
     <h2>Disclaimer</h2>
     <div class="disclaimer-section">
@@ -5944,33 +5944,33 @@
       </div>
     </div>
   </section>
-  
+
 <!-- Disclaimer -->
 
   <!-- Contact -->
-  
+
 <section id="contact-section">
   <h2>Contact Us</h2>
   <div class="contact">
     <div class="contact-form">
-      
+
       <!-- Embed Google Form -->
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfmaoSbppVZ3dt8C8EWU9UUHCxB2mJvSLQtxLECQPZ0WhBGrQ/viewform?usp=header" 
-        width="100%" 
-        height="600" 
-        frameborder="0" 
-        marginheight="0" 
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfmaoSbppVZ3dt8C8EWU9UUHCxB2mJvSLQtxLECQPZ0WhBGrQ/viewform?usp=header"
+        width="100%"
+        height="600"
+        frameborder="0"
+        marginheight="0"
         marginwidth="0">
         Loading…
       </iframe>
     </div>
   </div>
 </section>
-  
+
 <!-- Contact -->
-  
-  
+
+
   <!-- New Footer -->
   <footer>
     <div class="footer-content">
@@ -5987,44 +5987,44 @@
         <p><a href="#about-section" style="color: var(--text-light); text-decoration: none;">About Us</a></p>
         <p><a href="#disclaimer-section" style="color: var(--text-light); text-decoration: none;">Disclaimer</a></p>
         <p><a href="#contact-section" style="color: var(--text-light); text-decoration: none;">Contact</a></p>
-        
+
       </div>
-      
-      
+
+
    <!--   <div class="footer-section">
         <h3>Connect</h3>
         <div class="social-links">
           <a href="https://www.facebook.com/profile.php?id=61581480275081" class="social-link">Facebook</a> <br>
           <a href="https://www.tiktok.com/@kalevexs" class="social-link">Tiktok</a> <br>
           <a href="#" class="social-link">📸</a> <br>
-          <a href="#" class="social-link">🐦</a> 
+          <a href="#" class="social-link">🐦</a>
         </div>
       </div>
     </div>
-    
+
   -->
 
     <div class="footer-section">
-      
+
         <h3>Connect</h3>
         <p><a href="https://www.facebook.com/profile.php?id=61581480275081" style="color: var(--text-light); text-decoration: none;">Facebook</a></p>
   <!--   <p><a href="https://www.tiktok.com/@kalevexs" style="color: var(--text-light); text-decoration: none;">Tiktok</a></p> -->
         <p><a href="https://www.youtube.com/@Kalevexs" style="color: var(--text-light); text-decoration: none;">YouTube</a></p>
-       
-        
+
+
       </div>
     </div>
-    
-    
+
+
     <div class="footer-bottom">
       <p>&copy; 2025 KALEVEXS. All rights reserved. Crafted with passion for storytelling.</p>
     </div>
-    
+
   </footer>
-  
+
 
   <!-- Story Reader -->
-  
+
   <div class="modal" id="storyModal">
     <div class="modal-content">
       <div class="modal-header">
@@ -6034,17 +6034,17 @@
       <iframe id="storyFrame" src=""></iframe>
     </div>
   </div>
-  
+
 
   <!-- Notification Modal Square -->
-  
+
   <div class="notification-modal" id="notificationModal">
     <div class="notification-content">
       <div class="notification-header">
-      <h2>🎉 Newest Addition</h2> 
+      <h2>🎉 Newest Addition</h2>
       </div>
       <div class="notification-body">
-        <h3>Heart Villain & Frozen Valentine</h3>
+        <h3>Kiss Me If You Dare, My Boss, Secret Player, Sister, Yes! I Don’t Love You</h3>
      <!--   <p>Newest Addition</p> -->
      <!--   <p>Evil Enemy Defeats Love (GL)</p> -->
           <div class="notification-actions">
@@ -6055,26 +6055,26 @@
     </div>
   </div>
 
-  
 
-   <!-- Notes Modal 
-  
+
+   <!-- Notes Modal
+
   <div class="notes-modal" id="notesModal">
     <div class="notes-header">
       <h3>Important Notes & Disclaimer</h3>
       <button class="notes-close" onclick="closeNotesModal()">&times;</button>
     </div>
     <div class="notes-body">
-      <p><strong>Disclaimer:</strong> Stories featured on KALEVEXS are the creative works of their original authors. I do not claim ownership of any of these stories, nor am I affiliated with the creators.</p> 
+      <p><strong>Disclaimer:</strong> Stories featured on KALEVEXS are the creative works of their original authors. I do not claim ownership of any of these stories, nor am I affiliated with the creators.</p>
       <p><strong>Content Warning:</strong> Some stories contain mature content. Reader discretion is advised.</p>
     </div>
     <div class="notes-timer" id="notesTimer">This message will close in 30 seconds</div>
   </div>
 
   -->
-  
+
   <!-- Mature Content Warning Modal -->
-  
+
   <div class="mature-warning-modal" id="matureWarningModal">
     <div class="mature-warning-content">
       <div class="mature-warning-header">
@@ -6091,12 +6091,12 @@
       </div>
     </div>
   </div>
-  
-  
+
+
   <script>
     // Store the current story URL for mature content warning
     let currentStoryUrl = '';
-    
+
     // Drawer functionality
     const menuIcon = document.getElementById('menuIcon');
     const drawer = document.getElementById('drawer');
@@ -6112,7 +6112,7 @@
 
     menuIcon.addEventListener('click', toggleDrawer);
     overlay.addEventListener('click', toggleDrawer);
-    
+
     drawerLinks.forEach(link => {
       link.addEventListener('click', () => {
         toggleDrawer();
@@ -6128,8 +6128,8 @@
         }
       });
     });
-    
-    
+
+
 
     // Modal functionality
     function openModal(docUrl) {
@@ -6144,7 +6144,7 @@
           document.getElementById("storyModal").classList.add("active");
           document.getElementById("storyFrame").src = docUrl;
           document.body.style.overflow = 'hidden';
-          
+
           // Blur the notes modal when story modal is open
           const notesModal = document.getElementById("notesModal");
           if (notesModal.classList.contains("show")) {
@@ -6153,14 +6153,14 @@
         }
       }
     }
-    
+
     function closeModal() {
       document.getElementById("storyModal").classList.remove("active");
       setTimeout(() => {
         document.getElementById("storyFrame").src = "";
       }, 400);
       document.body.style.overflow = 'auto';
-      
+
       // Remove blur from notes modal when story modal is closed
       const notesModal = document.getElementById("notesModal");
       notesModal.classList.remove("blurred");
@@ -6171,34 +6171,34 @@
       document.getElementById("notificationModal").classList.add("active");
       document.body.style.overflow = 'hidden';
     }
-    
+
     function closeNotification() {
       document.getElementById("notificationModal").classList.remove("active");
       document.body.style.overflow = 'auto';
-      
+
       // Scroll to the newly added stories (last two stories in the grid)
       const storyCards = document.querySelectorAll('.story-card');
       if (storyCards.length >= 2) {
         const lastStory = storyCards[storyCards.length - 1];
         const secondLastStory = storyCards[storyCards.length - 2];
-        
+
         // Scroll to the second last story (Defeated By The Shadow Of Love)
         const offsetTop = secondLastStory.offsetTop - 100;
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
         });
-        
+
         // Add temporary highlight effect
         secondLastStory.style.boxShadow = '0 0 30px rgba(236, 72, 153, 0.8)';
         secondLastStory.style.transform = 'scale(1.02)';
         secondLastStory.style.transition = 'all 0.5s ease';
-        
+
         // Also highlight the last story (Rhythm Volume 1)
         lastStory.style.boxShadow = '0 0 30px rgba(102, 126, 234, 0.8)';
         lastStory.style.transform = 'scale(1.02)';
         lastStory.style.transition = 'all 0.5s ease';
-        
+
         // Remove highlight after 3 seconds
         setTimeout(() => {
           secondLastStory.style.boxShadow = '';
@@ -6208,7 +6208,7 @@
         }, 3000);
       }
     }
-    
+
     function dismissNotification() {
       document.getElementById("notificationModal").classList.remove("active");
       document.body.style.overflow = 'auto';
@@ -6226,19 +6226,19 @@
         setTimeout(showNotesModal, 60000);
         return;
       }
-      
+
       document.getElementById("notesModal").classList.add("show");
       document.body.style.overflow = 'auto';
-      
+
       // Reset timer
       secondsLeft = 30;
       document.getElementById("notesTimer").textContent = `This message will close in ${secondsLeft} seconds`;
-      
+
       // Start countdown timer
       notesTimer = setInterval(() => {
         secondsLeft--;
         document.getElementById("notesTimer").textContent = `This message will close in ${secondsLeft} seconds`;
-        
+
         if (secondsLeft <= 0) {
           closeNotesModal();
         }
@@ -6251,7 +6251,7 @@
       if (notesTimer) {
         clearInterval(notesTimer);
       }
-      
+
       // Set timeout to show the modal again after 15 seconds
       setTimeout(showNotesModal, 60000);
     }
@@ -6269,10 +6269,10 @@
     // Scroll animations
     const sections = document.querySelectorAll("section");
     const storyCards = document.querySelectorAll(".story-card");
-    
+
     const revealOnScroll = () => {
       const trigger = window.innerHeight * 0.8;
-      
+
       // Reveal sections
       sections.forEach(section => {
         const top = section.getBoundingClientRect().top;
@@ -6280,7 +6280,7 @@
           section.classList.add("visible");
         }
       });
-      
+
       // Reveal story cards instantly (no stagger delay)
       storyCards.forEach((card) => {
     const top = card.getBoundingClientRect().top;
@@ -6289,7 +6289,7 @@
   }
 });
 };
-    
+
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
 
@@ -6320,29 +6320,29 @@
     // Show notification modals
     // Show main notification after 1 second
     setTimeout(showNotification, 1000);
-    
+
     // Show notes modal after 5 seconds
     setTimeout(showNotesModal, 5000);
-    
+
     // Mature Content Warning Modal
     let matureWarningTimer;
     let matureSecondsLeft = 5;
-    
+
     function showMatureWarning(docUrl) {
       currentStoryUrl = docUrl;
       document.getElementById("matureWarningModal").classList.add("active");
       document.body.style.overflow = 'hidden';
-      
+
       // Reset timer
       matureSecondsLeft = 5;
       document.getElementById("matureWarningTimer").textContent = `You can continue in ${matureSecondsLeft} seconds`;
       document.getElementById("continueMatureBtn").disabled = true;
-      
+
       // Start countdown timer
       matureWarningTimer = setInterval(() => {
         matureSecondsLeft--;
         document.getElementById("matureWarningTimer").textContent = `You can continue in ${matureSecondsLeft} seconds`;
-        
+
         if (matureSecondsLeft <= 0) {
           document.getElementById("continueMatureBtn").disabled = false;
           document.getElementById("matureWarningTimer").textContent = "You can now continue";
@@ -6350,29 +6350,29 @@
         }
       }, 1000);
     }
-    
+
     function cancelMatureWarning() {
       document.getElementById("matureWarningModal").classList.remove("active");
       document.body.style.overflow = 'auto';
       clearInterval(matureWarningTimer);
       currentStoryUrl = '';
     }
-    
+
     function proceedToStory() {
       document.getElementById("matureWarningModal").classList.remove("active");
       document.body.style.overflow = 'auto';
       clearInterval(matureWarningTimer);
-      
+
       // Open the story modal
       document.getElementById("storyModal").classList.add("active");
       document.getElementById("storyFrame").src = currentStoryUrl;
-      
+
       // Blur the notes modal when story modal is open
       const notesModal = document.getElementById("notesModal");
       if (notesModal.classList.contains("show")) {
         notesModal.classList.add("blurred");
       }
-      
+
       currentStoryUrl = '';
     }
   </script>
